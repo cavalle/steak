@@ -1,0 +1,10 @@
+=Pickle
+
+"A pickled cucumber, most often simply called a pickle in the United States and Canada, is a cucumber that has been pickled in a brine, vinegar, or other solutions and left to ferment for a period of time." -- Wikipedia
+
+==Usage
+
+This plugin is WORK IN PROGRESS and HIGHLY EXPERIMENTAL. You'll find some examples in its specs.
+
+
+Copyright (c) 2009 Luismi Cavallé, released under the MIT license
