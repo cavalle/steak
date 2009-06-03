@@ -11,6 +11,7 @@ module Spec::DSL::Main
 end
 
 if ENV['RAILS_ENV']
+  gem 'rspec-rails'
   require 'spec/rails'
 
   module Spec::Rails::Example

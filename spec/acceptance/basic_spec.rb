@@ -1,50 +1,39 @@
-require 'rubygems'
-require 'spec'
-require 'tempfile'
-require File.dirname(__FILE__) + "/../../lib/pickle"
+require File.dirname(__FILE__) + "/acceptance_helper.rb"
 
 feature "Acceptance spec execution", %q{
   In order to write better software
-  As a developer
+  As a ruby developer
   I want to execute acceptance specs
 } do
   
   scenario "Minimal acceptance spec" do
-    spec_file = Tempfile.new("spec")
-    File.open(spec_file.path, "w") do |file|
-      file.write <<-EOF
+    spec_file = create_spec <<-SPEC
       require '#{File.dirname(__FILE__) + "/../../lib/pickle"}'  
       feature "Minimal spec" do
         scenario "First scenario" do
           true.should be_true
         end
       end
-      EOF
-    end
-    output = `spec #{spec_file.path} 2>&1`
+    SPEC
+    output = run_spec spec_file
     output.should =~ /1 example, 0 failures/
   end
   
   scenario "Minimal acceptance spec that fails" do
-    spec_file = Tempfile.new("spec")
-    File.open(spec_file.path, "w") do |file|
-      file.write <<-EOF
+    spec_file = create_spec <<-SPEC
       require '#{File.dirname(__FILE__) + "/../../lib/pickle"}'  
       feature "Minimal spec" do
         scenario "First scenario" do
           true.should be_false
         end
       end
-      EOF
-    end
-    output = `spec #{spec_file.path} 2>&1`
+    SPEC
+    output = run_spec spec_file
     output.should =~ /1 example, 1 failure/
   end
   
   scenario "Acceptance spec with background" do
-    spec_file = Tempfile.new("spec")
-    File.open(spec_file.path, "w") do |file|
-      file.write <<-EOF
+    spec_file = create_spec <<-SPEC
       require '#{File.dirname(__FILE__) + "/../../lib/pickle"}'  
       feature "Minimal spec" do
         background do
@@ -54,9 +43,8 @@ feature "Acceptance spec execution", %q{
           @value.should == 17
         end
       end
-      EOF
-    end
-    output = `spec #{spec_file.path} 2>&1`
+    SPEC
+    output = run_spec spec_file
     output.should =~ /1 example, 0 failures/
   end
   
