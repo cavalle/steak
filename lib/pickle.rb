@@ -11,25 +11,18 @@ module Spec::DSL::Main
 end
 
 if ENV['RAILS_ENV']
-  gem 'rspec-rails'
+  gem 'rspec-rails', '1.2.7.1'
   require 'spec/rails'
 
   module Spec::Rails::Example
-    class AcceptanceExampleGroup < ActionController::IntegrationTest
-      include ActionController::RecordIdentifier
-      Spec::Example::ExampleGroupFactory.register(:acceptance, self)
-    
+    class IntegrationExampleGroup
+      Spec::Example::ExampleGroupFactory.register(:acceptance, Spec::Rails::Example::IntegrationExampleGroup)
+
       def method_missing(sym, *args, &block)
         return Spec::Matchers::Be.new(sym, *args)  if sym.to_s =~ /^be_/
         return Spec::Matchers::Has.new(sym, *args) if sym.to_s =~ /^have_/
         super
       end
-    end
-  end
-
-  class ActionController::IntegrationTest < ActiveSupport::TestCase
-    def initialize(name)
-      super
     end
   end
 end
