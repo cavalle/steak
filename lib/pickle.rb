@@ -15,8 +15,9 @@ if ENV['RAILS_ENV']
   require 'spec/rails'
 
   module Spec::Rails::Example
-    class IntegrationExampleGroup
-      Spec::Example::ExampleGroupFactory.register(:acceptance, Spec::Rails::Example::IntegrationExampleGroup)
+    class AcceptanceExampleGroup < IntegrationExampleGroup
+      include ActionController::RecordIdentifier
+      Spec::Example::ExampleGroupFactory.register(:acceptance, self)
 
       def method_missing(sym, *args, &block)
         return Spec::Matchers::Be.new(sym, *args)  if sym.to_s =~ /^be_/
