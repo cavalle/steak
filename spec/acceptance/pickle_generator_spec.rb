@@ -17,6 +17,7 @@ feature "Pickle generator for rails", %q{
     File.exist?(rails_app + "/spec/acceptance/acceptance_helper.rb").should be_true
     File.exist?(rails_app + "/spec/acceptance/support/helpers.rb").should be_true
     File.exist?(rails_app + "/spec/acceptance/support/paths.rb").should be_true
+    File.exist?(rails_app + "/lib/tasks/pickle.rake").should be_true
     
   end
   
