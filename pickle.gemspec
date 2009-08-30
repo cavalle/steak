@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{pickle}
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Luismi Cavall\303\251"]
@@ -26,7 +26,9 @@ Gem::Specification.new do |s|
   s.summary = %q{A pickle is a cucumber fermented in vinegar or brine}
   s.test_files = [
     "spec/acceptance/acceptance_helper.rb",
+     "spec/acceptance/acceptance_spec_generator_spec.rb",
      "spec/acceptance/basic_spec.rb",
+     "spec/acceptance/pickle_generator_spec.rb",
      "spec/acceptance/rails_spec.rb"
   ]
 
