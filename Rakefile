@@ -28,7 +28,7 @@ begin
     gemspec.email = "luismi@lmcavalle.com"
     gemspec.homepage = "http://github.com/cavalle/pickle"
     gemspec.authors = ["Luismi Cavallé"]
-    gemspec.files = FileList["[A-Z]*.*", "lib/**/*"]
+    gemspec.files = FileList["[A-Z]*.*", "lib/**/*", "generators/**/*"]
     gemspec.add_dependency "rspec-rails", ">= 1.2.7.1"
   end
 rescue LoadError
