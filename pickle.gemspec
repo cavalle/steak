@@ -17,6 +17,14 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     "README.rdoc",
+     "generators/acceptance_spec/USAGE",
+     "generators/acceptance_spec/acceptance_spec_generator.rb",
+     "generators/acceptance_spec/templates/acceptance_spec.rb",
+     "generators/pickle/USAGE",
+     "generators/pickle/pickle_generator.rb",
+     "generators/pickle/templates/acceptance_helper.rb",
+     "generators/pickle/templates/helpers.rb",
+     "generators/pickle/templates/paths.rb",
      "lib/pickle.rb"
   ]
   s.homepage = %q{http://github.com/cavalle/pickle}
