@@ -17,11 +17,21 @@ module Factories
     path = Dir.tmpdir + "rails_app_#{String.random}"
     FileUtils.rm_rf path
     `rails #{path}`
+    File.open(path + "/config/environments/test.rb", "a") do |file|
+      file.write "\nconfig.gem 'rspec-rails', :lib => false\n"
+    end
     Dir.chdir path do
       `script/generate rspec`
     end
     FileUtils.cp_r File.dirname(__FILE__) + "/../../", path + "/vendor/plugins/pickle"
     FileUtils.mkdir_p path + "/spec/acceptance"
+    File.open(path + "/spec/acceptance/acceptance_helper.rb", "w") do |file|
+      file.write <<-EOF
+        require File.dirname(__FILE__) + "/../spec_helper.rb"
+        require 'pickle'
+      EOF
+    end
+    
     path
   end
   

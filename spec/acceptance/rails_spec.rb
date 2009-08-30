@@ -10,7 +10,7 @@ feature "Acceptance spec execution", %q{
     rails_app = create_rails_app
     spec_file = create_spec :path    => rails_app + "/spec/acceptance", 
                             :content => <<-SPEC
-      require File.dirname(__FILE__) + "/../spec_helper.rb"
+      require File.dirname(__FILE__) + "/acceptance_helper.rb"
       feature "Minimal spec" do
         scenario "First scenario" do
           RAILS_ENV.should_not be_empty
@@ -26,7 +26,7 @@ feature "Acceptance spec execution", %q{
     rails_app = create_rails_app
     spec_file = create_spec :path    => rails_app + "/spec/acceptance", 
                             :content => <<-SPEC
-      require File.dirname(__FILE__) + "/../spec_helper.rb"
+      require File.dirname(__FILE__) + "/acceptance_helper.rb"
       feature "Minimal spec" do
         scenario "First scenario" do
           get "/"
