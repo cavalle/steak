@@ -18,3 +18,19 @@ Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('README')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |gemspec|
+    gemspec.name = "pickle"
+    gemspec.summary = "A pickle is a cucumber fermented in vinegar or brine"
+    gemspec.description = "Acceptance specs for Rails"
+    gemspec.email = "luismi@lmcavalle.com"
+    gemspec.homepage = "http://github.com/cavalle/pickle"
+    gemspec.authors = ["Luismi Cavallé"]
+    gemspec.files = FileList["[A-Z]*.*", "lib/**/*"]
+    gemspec.add_dependency "rspec-rails", ">= 1.2.7.1"
+  end
+rescue LoadError
+  puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
+end
