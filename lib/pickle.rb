@@ -10,8 +10,7 @@ module Spec::DSL::Main
   alias feature describe
 end
 
-if ENV['RAILS_ENV']
-  require 'spec/rails'
+if defined?(Spec::Rails)
 
   module Spec::Rails::Example
     class AcceptanceExampleGroup < IntegrationExampleGroup
@@ -25,4 +24,5 @@ if ENV['RAILS_ENV']
       end
     end
   end
+  
 end
