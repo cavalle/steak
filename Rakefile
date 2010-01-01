@@ -30,8 +30,8 @@ begin
     gemspec.homepage = "http://github.com/cavalle/steak"
     gemspec.authors = ["Luismi Cavallé"]
     gemspec.files = FileList["[A-Z]*.*", "lib/**/*", "generators/**/*"]
-    gemspec.add_dependency "rspec-rails", ">= 1.2.7.1"
   end
+  Jeweler::GemcutterTasks.new
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install technicalsteaks-jeweler -s http://gems.github.com"
 end
