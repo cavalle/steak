@@ -1,8 +1,0 @@
-Description:
-    Sets up Pickle in your Rails project. This will generate the spec/acceptance directory
-    and the necessary files.
-    
-    You should also run `./script/generate rspec` to complete the set up.
-    
-Examples:
-    `./script/generate pickle`

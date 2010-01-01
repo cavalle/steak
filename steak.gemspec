@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{pickle}
+  s.name = %q{steak}
   s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -17,24 +17,24 @@ Gem::Specification.new do |s|
      "generators/acceptance_spec/USAGE",
      "generators/acceptance_spec/acceptance_spec_generator.rb",
      "generators/acceptance_spec/templates/acceptance_spec.rb",
-     "generators/pickle/USAGE",
-     "generators/pickle/pickle_generator.rb",
-     "generators/pickle/templates/acceptance_helper.rb",
-     "generators/pickle/templates/helpers.rb",
-     "generators/pickle/templates/paths.rb",
-     "generators/pickle/templates/pickle.rake",
-     "lib/pickle.rb"
+     "generators/steak/USAGE",
+     "generators/steak/steak_generator.rb",
+     "generators/steak/templates/acceptance_helper.rb",
+     "generators/steak/templates/helpers.rb",
+     "generators/steak/templates/paths.rb",
+     "generators/steak/templates/steak.rake",
+     "lib/steak.rb"
   ]
-  s.homepage = %q{http://github.com/cavalle/pickle}
+  s.homepage = %q{http://github.com/cavalle/steak}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
-  s.summary = %q{A pickle is a cucumber fermented in vinegar or brine}
+  s.summary = %q{A steak is a cucumber fermented in vinegar or brine}
   s.test_files = [
     "spec/acceptance/acceptance_helper.rb",
      "spec/acceptance/acceptance_spec_generator_spec.rb",
      "spec/acceptance/basic_spec.rb",
-     "spec/acceptance/pickle_generator_spec.rb",
+     "spec/acceptance/steak_generator_spec.rb",
      "spec/acceptance/rails_spec.rb"
   ]
 

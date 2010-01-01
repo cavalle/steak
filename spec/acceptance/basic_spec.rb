@@ -8,7 +8,7 @@ feature "Acceptance spec execution", %q{
   
   scenario "Minimal acceptance spec" do
     spec_file = create_spec <<-SPEC
-      require '#{File.dirname(__FILE__) + "/../../lib/pickle"}'  
+      require '#{File.dirname(__FILE__) + "/../../lib/steak"}'  
       feature "Minimal spec" do
         scenario "First scenario" do
           true.should be_true
@@ -21,7 +21,7 @@ feature "Acceptance spec execution", %q{
   
   scenario "Minimal acceptance spec that fails" do
     spec_file = create_spec <<-SPEC
-      require '#{File.dirname(__FILE__) + "/../../lib/pickle"}'  
+      require '#{File.dirname(__FILE__) + "/../../lib/steak"}'  
       feature "Minimal spec" do
         scenario "First scenario" do
           true.should be_false
@@ -34,7 +34,7 @@ feature "Acceptance spec execution", %q{
   
   scenario "Acceptance spec with background" do
     spec_file = create_spec <<-SPEC
-      require '#{File.dirname(__FILE__) + "/../../lib/pickle"}'  
+      require '#{File.dirname(__FILE__) + "/../../lib/steak"}'  
       feature "Minimal spec" do
         background do
           @value = 17

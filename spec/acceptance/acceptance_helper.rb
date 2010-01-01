@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'spec'
-require File.dirname(__FILE__) + "/../../lib/pickle"
+require File.dirname(__FILE__) + "/../../lib/steak"
 require 'tempfile'
 
 module Factories
@@ -20,12 +20,12 @@ module Factories
     File.open(path + "/config/environments/test.rb", "a") do |file|
       file.write "\nconfig.gem 'rspec-rails', :lib => false\n"
     end
-    FileUtils.cp_r File.dirname(__FILE__) + "/../../", path + "/vendor/plugins/pickle"
+    FileUtils.cp_r File.dirname(__FILE__) + "/../../", path + "/vendor/plugins/steak"
     
-    unless options[:setup_pickle] == false
+    unless options[:setup_steak] == false
       Dir.chdir path do
         `script/generate rspec`
-        `script/generate pickle`
+        `script/generate steak`
       end
     end
     

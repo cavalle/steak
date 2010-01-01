@@ -1,5 +1,5 @@
 require File.dirname(__FILE__) + "/../spec_helper"
-require "pickle"
+require "steak"
 require "webrat"
 
 Webrat.configure do |config|

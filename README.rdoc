@@ -1,14 +1,84 @@
-= Pickle
+= Steak
 
-http://dl.getdropbox.com/u/645329/pickle_small.jpg
+Minimalist acceptance testing on top of RSpec
 
-"A pickled cucumber, most often simply called a pickle in the United States and Canada, is a cucumber that has been pickled in a brine, vinegar, or other solutions and left to ferment for a period of time." -- Wikipedia
+http://dl.dropbox.com/u/645329/steak_small.jpg
 
-Pickle extends RSpec to offer acceptance specs for Rails. It's a BDD framework that only speaks ruby.
+== What is Steak?
 
-== Usage
+Steak is like Cucumber but in plain Ruby. This is how an acceptance spec looks like in Steak:
 
-This plugin is WORK IN PROGRESS and HIGHLY EXPERIMENTAL. You'll find some examples in the specs.
+  feature "Main page" do
+  
+    background do
+      create_user :login => "jdoe"
+      login_as "jdoe"
+    end
+  
+    scenario "should show existing quotes" do
+      create_quote :text => "The language of friendship is not words, but meanings", 
+                   :author => "Henry David Thoreau"
 
+      visit "/"
+    
+      page.should have_css(".quote", :count => 1)
+      within(:css, ".quote") do
+        page.should have_css(".text", :text => "The language of friendship is not words, but meanings")
+        page.should have_css(".author", :text => "Henry David Thoreau")
+      end
+    end
+    
+  end
+  
+No explicit givens, whens or thens. No steps, no english, just Ruby: RSpec, Steak and, in this example, some factories and Capybara. That's all.
+
+If you are not in Rails but use RSpec, then Steak is just some aliases providing you with the language of acceptance testing (+feature+, +scenario+, +background+). If you are in Rails, you also have a couple of generators and full Rails integration testing (meaning Webrat support, for instance)
+
+== Getting started
+
+=== Not in Rails
+
+Just install and require the damned gem!
+
+  $ [sudo] gem install steak
+
+Then in your spec or spec helper:
+
+  require 'rubygems'
+  require 'steak'
+  
+That's all. You don't really need to require RSpec.
+  
+=== In Rails
+
+Assuming you have already setup rspec-rails, add this to your project's <tt>config/environments/test.rb</tt>:
+
+  config.gem "steak"
+  
+Install the gem from the command line:
+  
+  $ [sudo] RAILS_ENV=test rake gems:install
+  
+Run the generator:
+
+  $ script/generate steak
+
+That will create some basic helper files and directory structure under the +spec+ directory, already configured for +Webrat+.
+
+Now you may want to create your first acceptance spec:
+
+  $ script/generate acceptance_spec this_is_my_first_feature
+  
+You run your acceptance specs just like your regular specs. Individually...
+
+  $ spec spec/acceptance/this_is_my_first_feature_spec.rb
+  
+...or all together:
+
+  $ spec spec/acceptance
+  
+== Credits
+
+Steak is developed and maintained by Luismi Cavallé with the help and support of the rest of the BeBanjo team: Sergio Gil and Jorge Gómez Sancha.
 
 Copyright (c) 2009 Luismi Cavallé, released under the MIT license
