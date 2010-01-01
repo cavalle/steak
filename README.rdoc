@@ -32,7 +32,7 @@ Steak is like Cucumber but in plain Ruby. This is how an acceptance spec looks l
   
 No explicit givens, whens or thens. No steps, no english, just Ruby: RSpec, Steak and, in this example, some factories and Capybara. That's all.
 
-If you are not in Rails but use RSpec, then Steak is just some aliases providing you with the language of acceptance testing (+feature+, +scenario+, +background+). If you are in Rails, you also have a couple of generators and full Rails integration testing (meaning Webrat support, for instance)
+If you are not in Rails but use RSpec, then Steak is just some aliases providing you with the language of acceptance testing (+feature+, +scenario+, +background+). If you are in Rails, you also have a couple of generators, a rake task and full Rails integration testing (meaning Webrat support, for instance)
 
 == Getting started
 
@@ -63,7 +63,7 @@ Run the generator:
 
   $ script/generate steak
 
-That will create some basic helper files and directory structure under the +spec+ directory, already configured for +Webrat+.
+That will create some basic helper files and directory structure under the +spec/acceptance+ directory, already configured for +Webrat+. Spend one minute on getting familiar with the structure and files you've got.
 
 Now you may want to create your first acceptance spec:
 
@@ -76,6 +76,10 @@ You run your acceptance specs just like your regular specs. Individually...
 ...or all together:
 
   $ spec spec/acceptance
+  
+...you can also do:
+
+  $ rake spec:acceptance
   
 == Credits
 
