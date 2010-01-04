@@ -44,7 +44,6 @@ Just install and require the damned gem!
 
 Then in your spec or spec helper:
 
-  require 'rubygems'
   require 'steak'
   
 That's all. You don't really need to require RSpec.
