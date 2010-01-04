@@ -24,8 +24,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|
     gemspec.name = "steak"
-    gemspec.summary = "A steak is a cucumber fermented in vinegar or brine"
-    gemspec.description = "Acceptance specs for Rails"
+    gemspec.summary = "If you are not in Rails but use RSpec, then Steak is just some aliases providing you with the language of acceptance testing (feature, scenario, background). If you are in Rails, you also have a couple of generators, a rake task and full Rails integration testing (meaning Webrat support, for instance)"
+    gemspec.description = "Minimalist acceptance testing on top of RSpec"
     gemspec.email = "luismi@lmcavalle.com"
     gemspec.homepage = "http://github.com/cavalle/steak"
     gemspec.authors = ["Luismi Cavallé"]

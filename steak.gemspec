@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Luismi Cavall\303\251"]
-  s.date = %q{2010-01-01}
-  s.description = %q{Acceptance specs for Rails}
+  s.date = %q{2010-01-02}
+  s.description = %q{Minimalist acceptance testing on top of RSpec}
   s.email = %q{luismi@lmcavalle.com}
   s.extra_rdoc_files = [
     "README.rdoc"
@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
-  s.summary = %q{A steak is a cucumber fermented in vinegar or brine}
+  s.summary = %q{If you are not in Rails but use RSpec, then Steak is just some aliases providing you with the language of acceptance testing (feature, scenario, background). If you are in Rails, you also have a couple of generators, a rake task and full Rails integration testing (meaning Webrat support, for instance)}
   s.test_files = [
     "spec/acceptance/acceptance_helper.rb",
      "spec/acceptance/acceptance_spec_generator_spec.rb",
