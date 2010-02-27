@@ -1,25 +1,27 @@
 require 'rubygems'
-require 'spec'
+require 'rspec'
 
-module Spec::Example::ExampleGroupMethods
-  alias scenario example
-  alias background before
+class Rspec::Core::ExampleGroup
+  class << self
+    alias scenario example
+    alias background before
+  end
 end
 
-module Spec::DSL::Main
+module Rspec::Core::KernelExtensions
   alias feature describe
 end
 
-if defined?(Spec::Rails)
+if defined?(Rspec::Rails)
 
-  module Spec::Rails::Example
+  module Rspec::Rails::Example
     class AcceptanceExampleGroup < IntegrationExampleGroup
       include ActionController::RecordIdentifier
-      Spec::Example::ExampleGroupFactory.register(:acceptance, self)
+      Rspec::Example::ExampleGroupFactory.register(:acceptance, self)
 
       def method_missing(sym, *args, &block)
-        return Spec::Matchers::Be.new(sym, *args)  if sym.to_s =~ /^be_/
-        return Spec::Matchers::Has.new(sym, *args) if sym.to_s =~ /^have_/
+        return Rspec::Matchers::Be.new(sym, *args)  if sym.to_s =~ /^be_/
+        return Rspec::Matchers::Has.new(sym, *args) if sym.to_s =~ /^have_/
         super
       end
     end

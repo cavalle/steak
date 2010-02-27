@@ -1,13 +1,14 @@
 require 'rake'
 require 'rake/rdoctask'
-require 'spec/rake/spectask'
+require 'rspec/core'
+require 'rspec/core/rake_task'
 
 desc 'Default: run specs.'
 task :default => :spec
 
 desc 'Run specs for the steak plugin.'
-Spec::Rake::SpecTask.new(:spec) do |t|
-  t.spec_files = FileList["spec/**/*_spec.rb"]
+Rspec::Core::RakeTask.new(:spec) do |t|
+  t.pattern = FileList["spec/**/*_spec.rb"]
 end
 
 desc 'Generate documentation for the steak plugin.'

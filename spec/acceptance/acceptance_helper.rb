@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'spec'
+require 'rspec'
 require File.dirname(__FILE__) + "/../../lib/steak"
 require 'tempfile'
 
@@ -17,8 +17,8 @@ module Factories
     path = Dir.tmpdir + "rails_app_#{String.random}"
     FileUtils.rm_rf path
     `rails #{path}`
-    File.open(path + "/config/environments/test.rb", "a") do |file|
-      file.write "\nconfig.gem 'rspec-rails', :lib => false\n"
+    File.open(path + "Gemfile", "a") do |file|
+      file.write "\ngem 'rspec-rails', '>= 2.0.0.a9'\n"
     end
     FileUtils.cp_r File.dirname(__FILE__) + "/../../", path + "/vendor/plugins/steak"
     
@@ -47,5 +47,7 @@ class String
   end
 end
 
-Spec::Runner.configuration.include(Factories)
-Spec::Runner.configuration.include(HelperMethods)
+Rspec.configure do |config|
+  config.include(Factories)
+  config.include(HelperMethods)
+end

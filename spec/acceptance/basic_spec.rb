@@ -8,7 +8,7 @@ feature "Acceptance spec execution", %q{
   
   scenario "Minimal acceptance spec" do
     spec_file = create_spec <<-SPEC
-      require '#{File.dirname(__FILE__) + "/../../lib/steak"}'  
+      require '#{File.dirname(__FILE__) + "/../../lib/steak"}'
       feature "Minimal spec" do
         scenario "First scenario" do
           true.should be_true
