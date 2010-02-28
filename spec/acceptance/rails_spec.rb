@@ -13,12 +13,12 @@ feature "Acceptance spec execution", %q{
       require File.dirname(__FILE__) + "/acceptance_helper.rb"
       feature "Minimal spec" do
         scenario "First scenario" do
-          RAILS_ENV.should_not be_empty
-          RAILS_ENV.should == "test"
+          # Rails.env.should_not be_nil
+          Rails.env.should == "test"
         end
       end
     SPEC
-    output = run_spec spec_file
+    output = run_spec spec_file, File.join(File.dirname(spec_file), '../..')
     output.should =~ /1 example, 0 failures/
   end
   
@@ -30,11 +30,11 @@ feature "Acceptance spec execution", %q{
       feature "Minimal spec" do
         scenario "First scenario" do
           get "/"
-          response.should have_text(/No route matches/)
+          response.should contain(/Welcome aboard/)
         end
       end
     SPEC
-    output = run_spec spec_file
+    output = run_spec spec_file, File.join(File.dirname(spec_file), '../..')
     output.should =~ /1 example, 0 failures/
   end
   

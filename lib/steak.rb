@@ -15,14 +15,16 @@ end
 if defined?(Rspec::Rails)
 
   module Rspec::Rails::Example
-    class AcceptanceExampleGroup < IntegrationExampleGroup
-      include ActionController::RecordIdentifier
-      Rspec::Example::ExampleGroupFactory.register(:acceptance, self)
-
+    module AcceptanceExampleGroup
       def method_missing(sym, *args, &block)
         return Rspec::Matchers::Be.new(sym, *args)  if sym.to_s =~ /^be_/
         return Rspec::Matchers::Has.new(sym, *args) if sym.to_s =~ /^have_/
         super
+      end
+      
+      Rspec.configure do |c|
+        c.include RequestExampleGroupBehaviour, :example_group => { :file_path => /\bspec\/acceptance\// }
+        c.include self, :example_group => { :file_path => /\bspec\/acceptance\// }
       end
     end
   end

@@ -11,7 +11,7 @@ feature "Steak generator for rails", %q{
     rails_app = create_rails_app(:setup_steak => false)
   
     Dir.chdir rails_app do
-      `script/generate steak`
+      `rails generate steak`
     end
   
     File.exist?(rails_app + "/spec/acceptance/acceptance_helper.rb").should be_true

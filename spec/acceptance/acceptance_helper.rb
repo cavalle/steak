@@ -14,18 +14,18 @@ module Factories
   end
   
   def create_rails_app(options = {})
-    path = Dir.tmpdir + "rails_app_#{String.random}"
+    path = File.join(Dir.tmpdir, String.random, "rails_app")
     FileUtils.rm_rf path
     `rails #{path}`
-    File.open(path + "Gemfile", "a") do |file|
+    File.open(File.join(path, "Gemfile"), "a") do |file|
       file.write "\ngem 'rspec-rails', '>= 2.0.0.a9'\n"
     end
     FileUtils.cp_r File.dirname(__FILE__) + "/../../", path + "/vendor/plugins/steak"
     
     unless options[:setup_steak] == false
       Dir.chdir path do
-        `script/generate rspec`
-        `script/generate steak`
+        `rails generate rspec:install`
+        `rails generate steak`
       end
     end
     
@@ -35,13 +35,24 @@ module Factories
 end
 
 module HelperMethods
-  def run_spec(file_path)
-    `spec #{file_path} 2>&1`
+  def run_spec(file_path, app_base=nil)
+    if app_base
+      current_dir = Dir.pwd
+      Dir.chdir app_base
+    end
+    
+    output = `rspec #{file_path} 2>&1`
+    
+    Dir.chdir current_dir if app_base
+    output
   end
 end
 
 class String
-  CHARS = ('a'..'z').to_a + ('A'..'Z').to_a
+  unless const_defined?("CHARS")
+    CHARS = ('a'..'z').to_a + ('A'..'Z').to_a
+  end
+  
   def self.random(size = 8)
     (0..size).map{ CHARS[rand(CHARS.length)] }.join
   end
