@@ -36,11 +36,13 @@ If you are not in Rails but use RSpec, then Steak is just some aliases providing
 
 == Getting started
 
+<em><b>NOTE:</b> Please note that the stable version of Steak only works with Rails 2.x and RSpec 1.x. If you want to try with Rails 3 or RSpec 2, then you can install the prerelease version of Steak (using <tt>gem install steak --pre</tt>) which is a based on the experimental <tt>rails3</tt> branch.</em>
+
 === Not in Rails
 
 Just install and require the damned gem!
 
-  $ [sudo] gem install steak
+  $ gem install steak
 
 Then in your spec or spec helper:
 
@@ -56,7 +58,7 @@ Assuming you have already setup rspec-rails, add this to your project's <tt>conf
   
 Install the gem from the command line:
   
-  $ [sudo] RAILS_ENV=test rake gems:install
+  $ RAILS_ENV=test rake gems:install
   
 Run the generator:
 
