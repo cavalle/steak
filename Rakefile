@@ -31,7 +31,7 @@ begin
     gemspec.homepage = "http://github.com/cavalle/steak"
     gemspec.authors = ["Luismi Cavallé"]
     gemspec.files = FileList["[A-Z]*.*", "lib/**/*", "generators/**/*"]
-    gemspec.add_dependency "rspec"
+    gemspec.add_dependency "rspec", ">= 2.0.0.beta.5"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
