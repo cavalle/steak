@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{steak}
-  s.version = "0.4.0.a2"
+  s.version = "0.4.0.a3"
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = ["Luismi Cavall\303\251"]
