@@ -6,4 +6,4 @@ module NavigationHelpers
   end
 end
 
-Rspec::Core.configuration.include(NavigationHelpers)
+Rspec.configuration.include(NavigationHelpers)
