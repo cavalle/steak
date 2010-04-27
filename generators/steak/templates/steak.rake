@@ -1,3 +1,5 @@
+unless ARGV.any? {|a| a =~ /^gems/} # Don't load anything when running the gems:* tasks
+
 load File.dirname(__FILE__) + '/rspec.rake'
 
 namespace :spec do
@@ -6,4 +8,6 @@ namespace :spec do
     t.spec_opts = ['--options', "\"#{RAILS_ROOT}/spec/spec.opts\""]
     t.spec_files = FileList["spec/acceptance/**/*_spec.rb"]
   end
+end
+
 end
