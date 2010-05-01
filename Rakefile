@@ -21,7 +21,7 @@ spec = Gem::Specification.new do |s|
 
   # Change these as appropriate
   s.name              = "steak"
-  s.version           = "0.3.3"
+  s.version           = "0.3.4"
   s.summary           = "If you are not in Rails but use RSpec, then Steak is just some aliases providing you with the language of acceptance testing (feature, scenario, background). If you are in Rails, you also have a couple of generators, a rake task and full Rails integration testing (meaning Webrat support, for instance)"
   s.description       = "Minimalist acceptance testing on top of RSpec"
   s.author            = "Luismi Cavallé"
