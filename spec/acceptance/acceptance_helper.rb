@@ -17,14 +17,18 @@ module Factories
     path = Dir.tmpdir + "rails_app_#{String.random}"
     FileUtils.rm_rf path
     `rails #{path}`
+    FileUtils.rm path + '/public/index.html'
     File.open(path + "/config/environments/test.rb", "a") do |file|
       file.write "\nconfig.gem 'rspec-rails', :lib => false\n"
     end
     FileUtils.cp_r File.dirname(__FILE__) + "/../../", path + "/vendor/plugins/steak"
     
+    Dir.chdir path do
+      `script/generate rspec`
+    end
+    
     unless options[:setup_steak] == false
       Dir.chdir path do
-        `script/generate rspec`
         `script/generate steak`
       end
     end

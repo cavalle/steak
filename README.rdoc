@@ -63,8 +63,12 @@ Install the gem from the command line:
 Run the generator:
 
   $ script/generate steak
+  
+That will create some basic helper files and directory structure under the +spec/acceptance+ directory, already configured for +Capybara+. If you want to use +Webrat+, just pass it to the generator:
 
-That will create some basic helper files and directory structure under the +spec/acceptance+ directory, already configured for +Webrat+. Spend one minute on getting familiar with the structure and files you've got.
+  $ script/generate steak --webrat
+
+Spend one minute on getting familiar with the structure and files you've got.
 
 Now you may want to create your first acceptance spec:
 
