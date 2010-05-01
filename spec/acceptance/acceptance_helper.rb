@@ -22,9 +22,17 @@ module Factories
     end
     FileUtils.cp_r File.dirname(__FILE__) + "/../../", path + "/vendor/plugins/steak"
     
+
+    Dir.chdir path do
+      `rails generate rspec:install`
+      if options[:scaffold]
+        `rails generate scaffold #{options[:scaffold]}`
+        `rake db:create db:migrate db:test:prepare`
+      end
+    end
+
     unless options[:setup_steak] == false
       Dir.chdir path do
-        `rails generate rspec:install`
         `rails generate steak`
       end
     end

@@ -21,4 +21,26 @@ feature "Steak generator for rails", %q{
     
   end
   
+  scenario "Running generator with webrat" do
+    rails_app = create_rails_app(:setup_steak => false, :scaffold => :users)
+
+    Dir.chdir rails_app do
+      `rails generate steak`
+    end
+
+    spec_file = create_spec :path    => rails_app + "/spec/acceptance",
+                            :content => <<-SPEC
+      require File.dirname(__FILE__) + "/acceptance_helper.rb"
+      feature "Webrat spec" do
+        scenario "First scenario" do
+          visit "/users"
+          response.should contain('Listing users')
+        end
+      end
+    SPEC
+
+    output = run_spec spec_file, rails_app
+    output.should =~ /1 example, 0 failures/
+  end
+  
 end

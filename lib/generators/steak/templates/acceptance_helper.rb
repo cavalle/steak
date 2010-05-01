@@ -3,7 +3,7 @@ require "steak"
 require "webrat"
 
 Webrat.configure do |config|
-  config.mode = :rails
+  config.mode = :rack
 end
 
 # Put your acceptance spec helpers inside /spec/acceptance/support
