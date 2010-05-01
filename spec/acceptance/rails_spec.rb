@@ -30,12 +30,12 @@ feature "Acceptance spec execution", %q{
       feature "Minimal spec" do
         scenario "First scenario" do
           get "/"
-          response.should contain(/Welcome aboard/)
+          response.should contain(/No route matches/)
         end
       end
     SPEC
     output = run_spec spec_file, File.join(File.dirname(spec_file), '../..')
-    output.should =~ /1 example, 0 failures/
+    output.should =~ /1 example, 1 failures/
   end
   
 end

@@ -36,11 +36,13 @@ If you are not in Rails but use RSpec, then Steak is just some aliases providing
 
 == Getting started
 
+<em><b>NOTE:</b> Please note that the stable version of Steak only works with Rails 2.x and RSpec 1.x. If you want to try with Rails 3 or RSpec 2, then you can install the prerelease version of Steak (using <tt>gem install steak --pre</tt>) which is based on the experimental <tt>rails3</tt> branch.</em>
+
 === Not in Rails
 
 Just install and require the damned gem!
 
-  $ [sudo] gem install steak
+  $ gem install steak
 
 Then in your spec or spec helper:
 
@@ -50,23 +52,27 @@ That's all. You don't really need to require RSpec.
   
 === In Rails
 
-Assuming you have already setup rspec-rails, add this to your project's <tt>config/environments/test.rb</tt>:
+Assuming you have already setup rspec-rails, add this to your project's <tt>Gemfile</tt>:
 
-  config.gem "steak"
+  gem 'steak', '0.4.0.a3'
   
-Install the gem from the command line:
+And install it:
   
-  $ [sudo] RAILS_ENV=test rake gems:install
+  $ bundle install
   
 Run the generator:
 
-  $ script/generate steak
+  $ rails generate steak
+  
+That will create some basic helper files and directory structure under the +spec/acceptance+ directory, already configured for +Capybara+. If you want to use +Webrat+, just pass it to the generator:
 
-That will create some basic helper files and directory structure under the +spec/acceptance+ directory, already configured for +Webrat+. Spend one minute on getting familiar with the structure and files you've got.
+  $ rails generate steak --webrat
+
+Spend one minute on getting familiar with the structure and files you've got.
 
 Now you may want to create your first acceptance spec:
 
-  $ script/generate acceptance_spec this_is_my_first_feature
+  $ rails generate acceptance_spec this_is_my_first_feature
   
 You run your acceptance specs just like your regular specs. Individually...
 
@@ -82,6 +88,11 @@ You run your acceptance specs just like your regular specs. Individually...
   
 == Credits
 
-Steak is developed and maintained by Luismi Cavallé with the help and support of the rest of the BeBanjo team: Sergio Gil and Jorge Gómez Sancha.
+Steak was created by Luismi Cavallé and improved thanks to the love from:
 
-Copyright (c) 2009 Luismi Cavallé, released under the MIT license
+- Álvaro Bautista
+- Felipe Talavera
+- Paco Guzmán
+- Jeff Kreeftmeijer
+
+Copyright (c) 2009, 2010 Luismi Cavallé, released under the MIT license

@@ -12,16 +12,24 @@ module Factories
     end
     path
   end
-  
+
   def create_rails_app(options = {})
     path = File.join(Dir.tmpdir, String.random, "rails_app")
     FileUtils.rm_rf path
     `rails #{path}`
+    FileUtils.rm_rf path + '/public/index.html'
     File.open(File.join(path, "Gemfile"), "a") do |file|
-      file.write "\ngem 'rspec-rails', '>= 2.0.0.a9'\n"
+      file.write "\ngem 'rspec-rails', '>= 2.0.0.a9'\n" <<
+                 "gem 'capybara'\n"
     end
-    FileUtils.cp_r File.dirname(__FILE__) + "/../../", path + "/vendor/plugins/steak"
-    
+
+    if options[:plugin]
+      FileUtils.cp_r File.dirname(__FILE__) + "/../../", path + "/vendor/plugins/steak"
+    else
+      File.open(File.join(path, "Gemfile"), "a") do |file|
+        file.write "\ngem 'steak', :path => '#{File.expand_path(File.dirname(__FILE__) + '/../..')}'\n"
+      end
+    end
 
     Dir.chdir path do
       `rails generate rspec:install`
@@ -36,10 +44,10 @@ module Factories
         `rails generate steak`
       end
     end
-    
+
     path
   end
-  
+
 end
 
 module HelperMethods
@@ -48,9 +56,9 @@ module HelperMethods
       current_dir = Dir.pwd
       Dir.chdir app_base
     end
-    
+
     output = `rspec #{file_path} 2>&1`
-    
+
     Dir.chdir current_dir if app_base
     output
   end
@@ -60,7 +68,7 @@ class String
   unless const_defined?("CHARS")
     CHARS = ('a'..'z').to_a + ('A'..'Z').to_a
   end
-  
+
   def self.random(size = 8)
     (0..size).map{ CHARS[rand(CHARS.length)] }.join
   end
