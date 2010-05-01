@@ -38,10 +38,7 @@ spec = Gem::Specification.new do |s|
 
   # If you want to depend on other gems, add them here, along with any
   # relevant versions
-  # s.add_dependency("some_other_gem", "~> 0.1.0")
-
-  # If your tests use any gems, include them here
-  s.add_development_dependency("rspec")
+  s.add_dependency("rspec")
 end
 
 # This task actually builds the gem. We also regenerate a static
