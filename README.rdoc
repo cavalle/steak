@@ -88,6 +88,11 @@ You run your acceptance specs just like your regular specs. Individually...
   
 == Credits
 
-Steak is developed and maintained by Luismi Cavallé with the help and support of the rest of the BeBanjo team: Sergio Gil and Jorge Gómez Sancha.
+Steak was created by Luismi Cavallé and improved thanks to the love from:
 
-Copyright (c) 2009 Luismi Cavallé, released under the MIT license
+- Álvaro Bautista
+- Felipe Talavera
+- Paco Guzmán
+- Jeff Kreeftmeijer
+
+Copyright (c) 2009, 2010 Luismi Cavallé, released under the MIT license
