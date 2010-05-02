@@ -4,6 +4,11 @@ class SteakGenerator < Rails::Generators::Base
   class_option :webrat, :desc => 'Use Webrat.', :type => :boolean
   class_option :capybara, :desc => 'Use Capybara.', :type => :boolean
 
+  def initialize(args=[], options={}, config={})
+    puts "Defaulting to Capybara..." if options.empty?
+    super
+  end
+
   def manifest
     empty_directory 'spec/controllers'
     empty_directory 'spec/acceptance/support'
