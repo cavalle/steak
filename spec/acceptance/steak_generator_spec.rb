@@ -43,7 +43,7 @@ feature "Steak generator for rails", %q{
   end
 
   scenario "Running generator with webrat" do
-    rails_app = create_rails_app(:setup_steak => false, :scaffold => :users, :plugin => true)
+    rails_app = create_rails_app(:setup_steak => false, :scaffold => :users)
 
     Dir.chdir rails_app do
       `rails generate steak --webrat`
@@ -55,7 +55,7 @@ feature "Steak generator for rails", %q{
       feature "Webrat spec" do
         scenario "First scenario" do
           visit "/users"
-          response.should contain('Listing users')
+          response_body.should contain('Listing users')
         end
       end
     SPEC

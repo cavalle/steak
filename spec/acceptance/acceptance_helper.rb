@@ -23,12 +23,8 @@ module Factories
                  "gem 'capybara'\n"
     end
 
-    if options[:plugin]
-      FileUtils.cp_r File.dirname(__FILE__) + "/../../", path + "/vendor/plugins/steak"
-    else
-      File.open(File.join(path, "Gemfile"), "a") do |file|
-        file.write "\ngem 'steak', :path => '#{File.expand_path(File.dirname(__FILE__) + '/../..')}'\n"
-      end
+    File.open(File.join(path, "Gemfile"), "a") do |file|
+      file.write "\ngem 'steak', :path => '#{File.expand_path(File.dirname(__FILE__) + '/../..')}'\n"
     end
 
     Dir.chdir path do
