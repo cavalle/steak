@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{steak}
-  s.version = "0.4.0.a3"
+  s.version = "0.4.0.a4"
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = ["Luismi Cavall\303\251"]
-  s.date = %q{2010-04-05}
+  s.date = %q{2010-05-04}
   s.description = %q{Minimalist acceptance testing on top of RSpec}
   s.email = %q{luismi@lmcavalle.com}
   s.extra_rdoc_files = [
