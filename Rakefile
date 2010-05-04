@@ -33,7 +33,7 @@ spec = Gem::Specification.new do |s|
   s.rdoc_options      = %w(--main README.rdoc)
 
   # Add any extra files to include in the gem
-  s.files             = %w(init.rb MIT-LICENSE Rakefile README.rdoc) + Dir.glob("{spec,lib/**/*}")
+  s.files             = %w(init.rb MIT-LICENSE Rakefile README.rdoc) + Dir.glob("{spec,lib/**/*,generators/**/*}")
   s.require_paths     = ["lib"]
 
   # If you want to depend on other gems, add them here, along with any
