@@ -9,7 +9,9 @@ end
 <%- else -%>
 require 'capybara/rails'
 
-include Capybara 
+Spec::Runner.configure do |config|
+  config.include Capybara 
+end
 <%- end -%>
 
 # Put your acceptance spec helpers inside /spec/acceptance/support
