@@ -4,6 +4,10 @@ Minimalist acceptance testing on top of RSpec
 
 http://dl.dropbox.com/u/645329/steak_small.jpg
 
+* Source hosted at GitHub[http://github.com/cavalle/steak]
+* Report issues on {GitHub Issues}[http://github.com/cavalle/steak/issues]
+* Questions and discussions at the {mailing list}[http://groups.google.com/group/steakrb] and the IRC channel #steakrb on freenode
+
 == What is Steak?
 
 Steak is like Cucumber but in plain Ruby. This is how an acceptance spec looks like in Steak:
@@ -94,5 +98,6 @@ Steak was created by Luismi Cavallé and improved thanks to the love from:
 - Felipe Talavera
 - Paco Guzmán
 - Jeff Kreeftmeijer
+- Jaime Iniesta
 
 Copyright (c) 2009, 2010 Luismi Cavallé, released under the MIT license
