@@ -54,7 +54,7 @@ That's all. You don't really need to require RSpec.
 
 Assuming you have already setup rspec-rails, add this to your project's <tt>Gemfile</tt>:
 
-  gem 'steak', '0.4.0.a3'
+  gem 'steak', '>= 0.4.0.a4'
   
 And install it:
   
