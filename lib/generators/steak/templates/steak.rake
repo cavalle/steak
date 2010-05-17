@@ -5,4 +5,9 @@ namespace :spec do
   Rspec::Core::RakeTask.new(:acceptance => "db:test:prepare") do |t|
     t.pattern = "spec/acceptance/**/*_spec.rb"
   end
+  
+  task :statsetup do
+    ::STATS_DIRECTORIES << %w(Acceptance\ specs spec/acceptance) if File.exist?('spec/acceptance')
+    ::CodeStatistics::TEST_TYPES << "Acceptance specs" if File.exist?('spec/acceptance')
+  end
 end

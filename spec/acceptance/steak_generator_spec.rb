@@ -63,5 +63,14 @@ feature "Steak generator for rails", %q{
     output = run_spec spec_file, rails_app
     output.should =~ /1 example, 0 failures/
   end
+  
+  scenario "Running rake stats" do
+    rails_app = create_rails_app
+
+    Dir.chdir rails_app do
+      `rails generate steak`
+      `rake stats`.should =~ /Acceptance specs/
+    end
+  end
 
 end
