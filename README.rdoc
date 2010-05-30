@@ -36,8 +36,6 @@ If you are not in Rails but use RSpec, then Steak is just some aliases providing
 
 == Getting started
 
-<em><b>NOTE:</b> Please note that the stable version of Steak only works with Rails 2.x and RSpec 1.x. If you want to try with Rails 3 or RSpec 2, then you can install the prerelease version of Steak (using <tt>gem install steak --pre</tt>) which is based on the experimental <tt>rails3</tt> branch.</em>
-
 === Not in Rails
 
 Just install and require the damned gem!
@@ -49,12 +47,48 @@ Then in your spec or spec helper:
   require 'steak'
   
 That's all. You don't really need to require RSpec.
+
+=== In Rails 2.x (stable branch)
+
+Assuming you have already setup rspec-rails, add this to your project's <tt>config/environments/test.rb</tt>:
+
+  config.gem "steak"
   
-=== In Rails
+Install the gem from the command line:
+  
+  $ RAILS_ENV=test rake gems:install
+  
+Run the generator:
 
-Assuming you have already setup rspec-rails, add this to your project's <tt>Gemfile</tt>:
+  $ script/generate steak
+  
+That will create some basic helper files and directory structure under the +spec/acceptance+ directory, already configured for +Capybara+. If you want to use +Webrat+, just pass it to the generator:
 
-  gem 'steak', '>= 0.4.0.a4'
+  $ script/generate steak --webrat
+
+Spend one minute on getting familiar with the structure and files you've got.
+
+Now you may want to create your first acceptance spec:
+
+  $ script/generate acceptance_spec this_is_my_first_feature
+  
+You run your acceptance specs just like your regular specs. Individually...
+
+  $ spec spec/acceptance/this_is_my_first_feature_spec.rb
+  
+...or all together:
+
+  $ spec spec/acceptance
+  
+...you can also do:
+
+  $ rake spec:acceptance
+  
+=== In Rails 3 (master branch)
+
+Add this to your project's <tt>Gemfile</tt>:
+
+  gem 'steak', '>= 0.4.0.a5'
   
 And install it:
   
@@ -86,6 +120,15 @@ You run your acceptance specs just like your regular specs. Individually...
 
   $ rake spec:acceptance
   
+== Resources
+
+  * Source: http://github.com/cavalle/steak
+  * Issues: http://github.com/cavalle/steak/issues
+  * Hashtag: #steakrb
+  * Group: http://groups.google.com/group/steakrb
+  * IRC channel: #steakrb on freenode
+  * Tutorial: http://jeffkreeftmeijer.com/2010/steak-because-cucumber-is-for-vegetarians/
+  
 == Credits
 
 Steak was created by Luismi Cavallé and improved thanks to the love from:
@@ -94,5 +137,8 @@ Steak was created by Luismi Cavallé and improved thanks to the love from:
 - Felipe Talavera
 - Paco Guzmán
 - Jeff Kreeftmeijer
+- Jaime Iniesta
+- Emili Parreño
+- Andreas Wolff
 
 Copyright (c) 2009, 2010 Luismi Cavallé, released under the MIT license
