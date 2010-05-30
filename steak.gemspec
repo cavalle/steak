@@ -1,6 +1,6 @@
 Gem::Specification.new do |gem|
   gem.name    = 'steak'
-  gem.version = '0.3.7'
+  gem.version = '0.3.8'
   gem.date    = Date.today.to_s
   
   gem.summary     = "Minimalist acceptance testing on top of Rspec"
