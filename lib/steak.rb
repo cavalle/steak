@@ -8,7 +8,7 @@ class Rspec::Core::ExampleGroup
   end
 end
 
-module Rspec::Core::KernelExtensions
+module Rspec::Core::ObjectExtensions
   alias feature describe
 end
 
