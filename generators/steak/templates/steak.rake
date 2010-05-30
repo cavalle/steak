@@ -1,6 +1,6 @@
 unless ARGV.any? {|a| a =~ /^gems/} # Don't load anything when running the gems:* tasks
 
-load File.dirname(__FILE__) + '/rspec.rake'
+require 'spec/rake/spectask'
 
 namespace :spec do
   desc "Run the code examples in spec/acceptance"
@@ -11,6 +11,7 @@ namespace :spec do
   
   # Setup stats to include acceptance specs
   task :statsetup do
+    require 'code_statistics'
     ::STATS_DIRECTORIES << %w(Acceptance\ specs spec/acceptance) if File.exist?('spec/acceptance')
     ::CodeStatistics::TEST_TYPES << "Acceptance specs" if File.exist?('spec/acceptance')
   end
