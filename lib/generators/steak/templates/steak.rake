@@ -1,4 +1,4 @@
-load File.dirname(__FILE__) + '/rspec.rake'
+require 'rspec/core/rake_task'
 
 namespace :spec do
   desc "Run the code examples in spec/acceptance"
@@ -7,6 +7,7 @@ namespace :spec do
   end
   
   task :statsetup do
+    require 'rails/code_statistics'
     ::STATS_DIRECTORIES << %w(Acceptance\ specs spec/acceptance) if File.exist?('spec/acceptance')
     ::CodeStatistics::TEST_TYPES << "Acceptance specs" if File.exist?('spec/acceptance')
   end
