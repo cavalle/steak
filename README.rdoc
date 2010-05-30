@@ -122,12 +122,12 @@ You run your acceptance specs just like your regular specs. Individually...
   
 == Resources
 
-  * Source: http://github.com/cavalle/steak
-  * Issues: http://github.com/cavalle/steak/issues
-  * Hashtag: #steakrb
-  * Group: http://groups.google.com/group/steakrb
-  * IRC channel: #steakrb on freenode
-  * Tutorial: http://jeffkreeftmeijer.com/2010/steak-because-cucumber-is-for-vegetarians/
+- Source: http://github.com/cavalle/steak
+- Issues: http://github.com/cavalle/steak/issues
+- Group: http://groups.google.com/group/steakrb
+- IRC channel: #steakrb on freenode
+- Tutorial: http://jeffkreeftmeijer.com/2010/steak-because-cucumber-is-for-vegetarians/
+- Hashtag: #steakrb
   
 == Credits
 
