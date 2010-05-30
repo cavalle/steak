@@ -1,6 +1,6 @@
 Gem::Specification.new do |gem|
   gem.name    = 'steak'
-  gem.version = '0.4.0.a4'
+  gem.version = '0.4.0.beta.1'
   gem.date    = Date.today.to_s
   
   gem.summary     = "Minimalist acceptance testing on top of Rspec"
@@ -13,5 +13,5 @@ Gem::Specification.new do |gem|
   gem.files = Dir['init.rb', 'MIT-LICENSE', 'Rakefile', 'README*', 'LICENSE*',
                   '{lib,spec}/**/*'] & `git ls-files -z`.split("\0")
                   
-  gem.add_dependency('rspec', '>= 2.0.0.beta.5')
+  gem.add_dependency('rspec', '>= 2.0.0.beta.9')
 end
