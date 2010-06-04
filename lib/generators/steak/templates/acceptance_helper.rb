@@ -13,7 +13,7 @@ module AppHelper
   end
 end
 
-Rspec.configure do |config|
+RSpec.configure do |config|
   config.include Rack::Test::Methods
   config.include Webrat::Methods
   config.include Webrat::Matchers
@@ -22,7 +22,7 @@ end
 <%- else -%>
 require 'capybara/rails'
 
-Rspec.configure do |config|
+RSpec.configure do |config|
   config.include Capybara
 end
 <%- end -%>

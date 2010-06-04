@@ -70,7 +70,7 @@ class String
   end
 end
 
-Rspec.configure do |config|
+RSpec.configure do |config|
   config.include(Factories)
   config.include(HelperMethods)
 end

@@ -3,4 +3,4 @@ module HelperMethods
   
 end
 
-Rspec.configuration.include(HelperMethods)
+RSpec.configuration.include(HelperMethods)

@@ -7,7 +7,7 @@ desc 'Default: run specs.'
 task :default => :spec
 
 desc 'Run specs for the steak plugin.'
-Rspec::Core::RakeTask.new(:spec) do |t|
+RSpec::Core::RakeTask.new(:spec) do |t|
   t.pattern = FileList["spec/**/*_spec.rb"]
 end
 
