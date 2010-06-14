@@ -1,8 +1,8 @@
 Description:
     Sets up Steak in your Rails project. This will generate the spec/acceptance directory
     and the necessary files.
-    
+
     If you haven't already, You should also run `rails generate rspec:install` to complete the set up.
-    
+
 Examples:
     `rails generate steak`

@@ -1,6 +1,6 @@
 module NavigationHelpers
-  # Put here the helper methods related to the paths of your applications
-  
+  # Put helper methods related to the paths in your application here.
+
   def homepage
     "/"
   end

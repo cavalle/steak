@@ -5,9 +5,8 @@ feature "Feature name", %q{
   As a ...
   I want to ...
 } do
-  
+
   scenario "Scenario name" do
     true.should == true
   end
-  
 end

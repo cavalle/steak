@@ -9,27 +9,27 @@ http://dl.dropbox.com/u/645329/steak_small.jpg
 Steak is like Cucumber but in plain Ruby. This is how an acceptance spec looks like in Steak:
 
   feature "Main page" do
-  
+
     background do
       create_user :login => "jdoe"
       login_as "jdoe"
     end
-  
+
     scenario "should show existing quotes" do
-      create_quote :text => "The language of friendship is not words, but meanings", 
+      create_quote :text => "The language of friendship is not words, but meanings",
                    :author => "Henry David Thoreau"
 
       visit "/"
-    
+
       page.should have_css(".quote", :count => 1)
       within(:css, ".quote") do
         page.should have_css(".text", :text => "The language of friendship is not words, but meanings")
         page.should have_css(".author", :text => "Henry David Thoreau")
       end
     end
-    
+
   end
-  
+
 No explicit givens, whens or thens. No steps, no english, just Ruby: RSpec, Steak and, in this example, some factories and Capybara. That's all.
 
 If you are not in Rails but use RSpec, then Steak is just some aliases providing you with the language of acceptance testing (+feature+, +scenario+, +background+). If you are in Rails, you also have a couple of generators, a rake task and full Rails integration testing (meaning Webrat support, for instance)
@@ -45,7 +45,7 @@ Just install and require the damned gem!
 Then in your spec or spec helper:
 
   require 'steak'
-  
+
 That's all. You don't really need to require RSpec.
 
 === In Rails 2.x (stable branch)
@@ -53,15 +53,15 @@ That's all. You don't really need to require RSpec.
 Assuming you have already setup rspec-rails, add this to your project's <tt>config/environments/test.rb</tt>:
 
   config.gem "steak"
-  
+
 Install the gem from the command line:
-  
+
   $ RAILS_ENV=test rake gems:install
-  
+
 Run the generator:
 
   $ script/generate steak
-  
+
 That will create some basic helper files and directory structure under the +spec/acceptance+ directory, already configured for +Capybara+. If you want to use +Webrat+, just pass it to the generator:
 
   $ script/generate steak --webrat
@@ -71,33 +71,33 @@ Spend one minute on getting familiar with the structure and files you've got.
 Now you may want to create your first acceptance spec:
 
   $ script/generate acceptance_spec this_is_my_first_feature
-  
+
 You run your acceptance specs just like your regular specs. Individually...
 
   $ spec spec/acceptance/this_is_my_first_feature_spec.rb
-  
+
 ...or all together:
 
   $ spec spec/acceptance
-  
+
 ...you can also do:
 
   $ rake spec:acceptance
-  
+
 === In Rails 3 (master branch)
 
 Add this to your project's <tt>Gemfile</tt>:
 
   gem 'steak', '>= 0.4.0.a5'
-  
+
 And install it:
-  
+
   $ bundle install
-  
+
 Run the generator:
 
   $ rails generate steak
-  
+
 That will create some basic helper files and directory structure under the +spec/acceptance+ directory, already configured for +Capybara+. If you want to use +Webrat+, just pass it to the generator:
 
   $ rails generate steak --webrat
@@ -107,19 +107,19 @@ Spend one minute on getting familiar with the structure and files you've got.
 Now you may want to create your first acceptance spec:
 
   $ rails generate acceptance_spec this_is_my_first_feature
-  
+
 You run your acceptance specs just like your regular specs. Individually...
 
   $ spec spec/acceptance/this_is_my_first_feature_spec.rb
-  
+
 ...or all together:
 
   $ spec spec/acceptance
-  
+
 ...you can also do:
 
   $ rake spec:acceptance
-  
+
 == Resources
 
 - Source: http://github.com/cavalle/steak
@@ -128,7 +128,7 @@ You run your acceptance specs just like your regular specs. Individually...
 - IRC channel: #steakrb on freenode
 - Tutorial: http://jeffkreeftmeijer.com/2010/steak-because-cucumber-is-for-vegetarians/
 - Hashtag: #steakrb
-  
+
 == Credits
 
 Steak was created by Luismi Cavallé and improved thanks to the love from:

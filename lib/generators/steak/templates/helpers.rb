@@ -1,6 +1,5 @@
 module HelperMethods
-  # Put here any helper method you need to be available in all your acceptance tests
-  
+  # Put helper methods you need to be available in all tests here.
 end
 
 RSpec.configuration.include(HelperMethods)

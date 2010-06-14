@@ -63,7 +63,7 @@ feature "Steak generator for rails", %q{
     output = run_spec spec_file, rails_app
     output.should =~ /1 example, 0 failures/
   end
-  
+
   scenario "Running rake stats" do
     rails_app = create_rails_app
 
@@ -72,7 +72,7 @@ feature "Steak generator for rails", %q{
       `rake stats`.should =~ /Acceptance specs/
     end
   end
-  
+
   scenario "Running specs with rake" do
     rails_app = create_rails_app(:setup_steak => true)
 
@@ -85,16 +85,15 @@ feature "Steak generator for rails", %q{
         end
       end
     SPEC
-    
+
     Dir.chdir rails_app do
       `rake db:create db:migrate db:test:prepare`
-      
+
       output = `rake spec:acceptance`
       output.should =~ /1 example, 0 failures/
-    
+
       output = `rake`
       output.should =~ /1 example, 0 failures/
     end
   end
-
 end
