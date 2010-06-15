@@ -140,5 +140,8 @@ Steak was created by Luismi Cavallé and improved thanks to the love from:
 - Jaime Iniesta
 - Emili Parreño
 - Andreas Wolff
+- Wincent Colaiuta
+- Falk Pauser
+
 
 Copyright (c) 2009, 2010 Luismi Cavallé, released under the MIT license
