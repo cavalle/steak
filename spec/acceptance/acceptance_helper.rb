@@ -16,7 +16,7 @@ module Factories
   def create_rails_app(options = {})
     path = File.join(Dir.tmpdir, String.random, "rails_app")
     FileUtils.rm_rf path
-    `rails #{path}`
+    `rails new #{path}`
     FileUtils.rm_rf path + '/public/index.html'
     File.open(File.join(path, "Gemfile"), "a") do |file|
       file.write "\ngem 'rspec-rails', '>= 2.0.0.a9'\n" <<
@@ -37,7 +37,7 @@ module Factories
 
     unless options[:setup_steak] == false
       Dir.chdir path do
-        `rails generate steak`
+        `rails generate steak:install`
       end
     end
 

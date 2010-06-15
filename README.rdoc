@@ -96,17 +96,17 @@ And install it:
 
 Run the generator:
 
-  $ rails generate steak
+  $ rails generate steak:install
 
 That will create some basic helper files and directory structure under the +spec/acceptance+ directory, already configured for +Capybara+. If you want to use +Webrat+, just pass it to the generator:
 
-  $ rails generate steak --webrat
+  $ rails generate steak:install --webrat
 
 Spend one minute on getting familiar with the structure and files you've got.
 
 Now you may want to create your first acceptance spec:
 
-  $ rails generate acceptance_spec this_is_my_first_feature
+  $ rails generate steak:spec this_is_my_first_feature
 
 You run your acceptance specs just like your regular specs. Individually...
 
