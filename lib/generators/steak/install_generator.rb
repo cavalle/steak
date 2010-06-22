@@ -7,7 +7,7 @@ module Steak
 
     source_root File.join(File.dirname(__FILE__), 'templates')
 
-    desc <<DESC
+    desc <<-DESC
 Description:
     Sets up Steak in your Rails project. This will generate the
     spec/acceptance directory and the necessary files.

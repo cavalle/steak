@@ -4,7 +4,7 @@ module Steak
   class SpecGenerator < Rails::Generators::NamedBase
     source_root File.join(File.dirname(__FILE__), 'templates')
 
-    desc <<DESC
+    desc <<-DESC
 Description:
     Create an acceptance spec for the feature NAME in the
     'spec/acceptance' folder.
