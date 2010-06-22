@@ -6,7 +6,8 @@ http://dl.dropbox.com/u/645329/steak_small.jpg
 
 == What is Steak?
 
-Steak is like Cucumber but in plain Ruby. This is how an acceptance spec looks like in Steak:
+Steak is like Cucumber but in plain Ruby. This is how an acceptance spec looks
+like in Steak:
 
   feature "Main page" do
 
@@ -30,9 +31,14 @@ Steak is like Cucumber but in plain Ruby. This is how an acceptance spec looks l
 
   end
 
-No explicit givens, whens or thens. No steps, no english, just Ruby: RSpec, Steak and, in this example, some factories and Capybara. That's all.
+No explicit givens, whens or thens. No steps, no english, just Ruby: RSpec,
+Steak and, in this example, some factories and Capybara. That's all.
 
-If you are not in Rails but use RSpec, then Steak is just some aliases providing you with the language of acceptance testing (+feature+, +scenario+, +background+). If you are in Rails, you also have a couple of generators, a rake task and full Rails integration testing (meaning Webrat support, for instance)
+If you are not in Rails but use RSpec, then Steak is just some aliases
+providing you with the language of acceptance testing (+feature+, +scenario+,
++background+). If you are in Rails, you also have a couple of generators, a
+rake task and full Rails integration testing (meaning Webrat support, for
+instance)
 
 == Getting started
 
@@ -52,7 +58,8 @@ That's all. You don't really need to require RSpec.
 
 === In Rails 2.x (stable branch)
 
-Assuming you have already setup rspec-rails, add this to your project's <tt>config/environments/test.rb</tt>:
+Assuming you have already setup rspec-rails, add this to your project's
+<tt>config/environments/test.rb</tt>:
 
   config.gem "steak"
 
@@ -64,7 +71,9 @@ Run the generator:
 
   $ script/generate steak
 
-That will create some basic helper files and directory structure under the +spec/acceptance+ directory, already configured for +Capybara+. If you want to use +Webrat+, just pass it to the generator:
+That will create some basic helper files and directory structure under the
++spec/acceptance+ directory, already configured for +Capybara+. If you want to
+use +Webrat+, just pass it to the generator:
 
   $ script/generate steak --webrat
 
@@ -100,7 +109,9 @@ Run the generator:
 
   $ rails generate steak:install
 
-That will create some basic helper files and directory structure under the +spec/acceptance+ directory, already configured for +Capybara+. If you want to use +Webrat+, just pass it to the generator:
+That will create some basic helper files and directory structure under the
++spec/acceptance+ directory, already configured for +Capybara+. If you want to
+use +Webrat+, just pass it to the generator:
 
   $ rails generate steak:install --webrat
 
