@@ -5,6 +5,8 @@ module Steak
     class_option :webrat, :desc => 'Use Webrat.', :type => :boolean
     class_option :capybara, :desc => 'Use Capybara.', :type => :boolean
 
+    source_root File.join(File.dirname(__FILE__), 'templates')
+
     desc <<DESC
 Description:
     Sets up Steak in your Rails project. This will generate the
@@ -34,10 +36,6 @@ DESC
 
     def driver
       @driver = options.webrat? ? 'webrat' : 'capybara'
-    end
-
-    def self.source_root
-      File.join(File.dirname(__FILE__), 'templates')
     end
   end
 end
