@@ -90,7 +90,7 @@ You run your acceptance specs just like your regular specs. Individually...
 
 Add this to your project's <tt>Gemfile</tt>:
 
-  gem 'steak', :git => 'git@github.com:cavalle/steak.git'
+  gem 'steak', :git => 'git://github.com/cavalle/steak.git'
 
 And install it:
 
