@@ -42,6 +42,8 @@ Just install and require the damned gem!
 
   $ gem install steak
 
+(Add the +--pre+ modifier if you want to be based on RSpec 2 instead of RSpec 1.x)
+
 Then in your spec or spec helper:
 
   require 'steak'
