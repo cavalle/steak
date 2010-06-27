@@ -26,6 +26,8 @@ module Factories
     File.open(File.join(path, "Gemfile"), "a") do |file|
       file.write "\ngem 'steak', :path => '#{File.expand_path(File.dirname(__FILE__) + '/../..')}'\n"
     end
+    
+    `bundle install`
 
     Dir.chdir path do
       `rails generate rspec:install`

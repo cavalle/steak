@@ -35,6 +35,6 @@ feature "Acceptance spec execution", %q{
       end
     SPEC
     output = run_spec spec_file, File.join(File.dirname(spec_file), '../..')
-    output.should =~ /1 example, 1 failures/
+    output.should =~ /1 example, 1 failure/
   end
 end
