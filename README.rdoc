@@ -85,11 +85,11 @@ Now you may want to create your first acceptance spec:
 
 You run your acceptance specs just like your regular specs. Individually...
 
-  $ spec spec/acceptance/this_is_my_first_feature_spec.rb
+  $ rspec spec/acceptance/this_is_my_first_feature_spec.rb
 
 ...or all together:
 
-  $ spec spec/acceptance
+  $ rspec spec/acceptance
 
 ...you can also do:
 
@@ -123,11 +123,11 @@ Now you may want to create your first acceptance spec:
 
 You run your acceptance specs just like your regular specs. Individually...
 
-  $ spec spec/acceptance/this_is_my_first_feature_spec.rb
+  $ rspec spec/acceptance/this_is_my_first_feature_spec.rb
 
 ...or all together:
 
-  $ spec spec/acceptance
+  $ rspec spec/acceptance
 
 ...you can also do:
 
