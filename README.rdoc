@@ -100,22 +100,27 @@ You run your acceptance specs just like your regular specs. Individually...
 Add this to your project's <tt>Gemfile</tt>:
 
   group :test do
+    gem 'rspec-rails', '>= 2.0.0.beta.13'
     gem 'steak', :git => 'git://github.com/cavalle/steak.git'
+    gem 'capybara'
+    
+    # Other usual suspects:
+    # gem 'delorean'
+    # gem 'database_cleaner'
+    # gem 'spork'
   end
 
-And install it:
+And install:
 
   $ bundle install
 
-Run the generator:
+Run the generators:
 
-  $ rails generate steak:install
+  $ rails g rspec:install
+  $ rails g steak:install
 
 That will create some basic helper files and directory structure under the
-+spec/acceptance+ directory, already configured for +Capybara+. If you want to
-use +Webrat+, just pass it to the generator:
-
-  $ rails generate steak:install --webrat
++spec/acceptance+ directory, already configured for +Capybara+.
 
 Spend one minute on getting familiar with the structure and files you've got.
 
@@ -157,6 +162,7 @@ Steak was created by Luismi Cavallé and improved thanks to the love from:
 - Andreas Wolff
 - Wincent Colaiuta
 - Falk Pauser
-
+- Francesc Esplugas
+- Raúl Murciano
 
 Copyright (c) 2009, 2010 Luismi Cavallé, released under the MIT license
