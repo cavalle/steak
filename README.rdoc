@@ -72,7 +72,7 @@ Run the generator:
   $ script/generate steak
 
 That will create some basic helper files and directory structure under the
-+spec/acceptance+ directory, already configured for +Capybara+. If you want to
+<tt>spec/acceptance</tt> directory, already configured for +Capybara+. If you want to
 use +Webrat+, just pass it to the generator:
 
   $ script/generate steak --webrat
@@ -120,7 +120,7 @@ Run the generators:
   $ rails g steak:install
 
 That will create some basic helper files and directory structure under the
-+spec/acceptance+ directory, already configured for +Capybara+.
+<tt>spec/acceptance</tt> directory, already configured for +Capybara+.
 
 Spend one minute on getting familiar with the structure and files you've got.
 
