@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 Gem::Specification.new do |gem|
   gem.name    = 'steak'
   gem.version = '0.4.0.beta.1'
