@@ -14,7 +14,7 @@ feature "Acceptance spec execution", %q{
       feature "Minimal spec" do
         scenario "First scenario" do
           # Rails.env.should_not be_nil
-          Rails.env.should == "test"
+          ::Rails.env.should == "test"
         end
       end
     SPEC
