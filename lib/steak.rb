@@ -1,5 +1,4 @@
-require 'rubygems'
-require 'rspec'
+require 'rspec/core'
 
 class RSpec::Core::ExampleGroup
   class << self

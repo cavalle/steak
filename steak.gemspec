@@ -15,5 +15,5 @@ Gem::Specification.new do |gem|
   gem.files = Dir['init.rb', 'MIT-LICENSE', 'Rakefile', 'README*', 'LICENSE*',
                   '{lib,spec}/**/*'] & `git ls-files -z`.split("\0")
 
-  gem.add_dependency('rspec', '>= 2.0.0.beta.9')
+  gem.add_dependency('rspec-core', '>= 2.0.0.beta.9')
 end
