@@ -6,4 +6,4 @@ module NavigationHelpers
   end
 end
 
-RSpec.configuration.include(NavigationHelpers), :example_group => { :file_path => %r{\bspec/acceptance/} }
+RSpec.configuration.include NavigationHelpers, :type => :acceptance

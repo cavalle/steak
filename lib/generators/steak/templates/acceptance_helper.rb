@@ -7,24 +7,22 @@ Webrat.configure do |config|
   config.mode = :rack
 end
 
-module AppHelper
+module Steak::Webrat
+  include Rack::Test::Methods
+  include Webrat::Methods
+  include Webrat::Matchers
+  
   def app
     Rails.application
   end
 end
 
-RSpec.configure do |config|
-  config.include Rack::Test::Methods
-  config.include Webrat::Methods
-  config.include Webrat::Matchers
-  config.include AppHelper
-end
+RSpec.configuration.include Steak::Webrat, :type => :acceptance
+
 <%- else -%>
 require 'capybara/rails'
 
-RSpec.configure do |config|
-  config.include Capybara
-end
+RSpec.configuration.include Capybara, :type => :acceptance
 <%- end -%>
 
 # Put your acceptance spec helpers inside /spec/acceptance/support

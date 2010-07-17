@@ -139,6 +139,24 @@ You run your acceptance specs just like your regular specs. Individually...
 ...you can also do:
 
   $ rake spec:acceptance
+  
+== RSpec & Metadata
+
+Steak scenarios are just regular RSpec examples with their metadata attribute 
+`:type` set to `:acceptance`. That's useful if you want to make sure you 
+include helpers or set hooks only for your acceptance specs and not for the 
+rest of the specs in your suite.
+
+You'd do it this way:
+
+  RSpec.configure do |config|
+    # include MyHelpers module in every acceptance spec
+    config.include MyHelpers, :type => :acceptance 
+    
+    config.before(:each, :type => :acceptance) do
+      # Some code to run before any acceptance spec
+    end
+  end
 
 == Resources
 

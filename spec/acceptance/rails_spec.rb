@@ -38,6 +38,21 @@ feature "Acceptance spec execution", %q{
     output.should =~ /1 example, 1 failure/
   end
   
+  scenario "Path helpers are available" do
+    rails_app = create_rails_app
+    spec_file = create_spec :path    => rails_app + "/spec/acceptance",
+                            :content => <<-SPEC
+      require File.dirname(__FILE__) + "/acceptance_helper.rb"
+      feature "Minimal spec" do
+        scenario "First scenario" do
+          homepage.should == "/"
+        end
+      end
+    SPEC
+    output = run_spec spec_file, File.join(File.dirname(spec_file), '../..')
+    output.should =~ /1 example, 0 failures/
+  end
+  
   scenario "Running rake stats" do
     rails_app = create_rails_app
 
