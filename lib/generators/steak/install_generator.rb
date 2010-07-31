@@ -27,11 +27,9 @@ DESC
     def manifest
       empty_directory 'spec/controllers'
       empty_directory 'spec/acceptance/support'
-      empty_directory 'lib/tasks'
       template "acceptance_helper.rb", "spec/acceptance/acceptance_helper.rb"
       copy_file "helpers.rb",           "spec/acceptance/support/helpers.rb"
       copy_file "paths.rb",             "spec/acceptance/support/paths.rb"
-      copy_file "steak.rake",          "lib/tasks/steak.rake"
     end
 
     def driver

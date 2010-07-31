@@ -1,6 +1,8 @@
 require 'rspec/core'
 
 module Steak
+  require 'steak/railtie' if defined?(Rails)
+  
   module AcceptanceExampleGroup
     def self.included(base)
       base.instance_eval do
