@@ -1,24 +1,11 @@
-require 'rspec/core'
-
-module Steak
-  require 'steak/railtie' if defined?(Rails)
-  
-  module AcceptanceExampleGroup
-    def self.included(base)
-      base.instance_eval do
-        alias scenario example
-        alias background before
-      end
-    end
-  end
+begin
+  require 'rspec/core'
+rescue LoadError
+  require 'spec'
 end
 
-module RSpec::Core::ObjectExtensions
-  def feature(*args, &block)
-    args << {} unless args.last.is_a?(Hash)
-    args.last.update :type => :acceptance, :steak => true    
-    describe(*args, &block)
-  end
+if defined?(RSpec)
+  require 'steak-rspec2'
+else
+  require 'steak-rspec1'
 end
-
-RSpec.configuration.include Steak::AcceptanceExampleGroup, :type => :acceptance
