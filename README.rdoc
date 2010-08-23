@@ -166,6 +166,7 @@ You'd do it this way:
 - IRC channel: #steakrb on freenode
 - Tutorial: http://jeffkreeftmeijer.com/2010/steak-because-cucumber-is-for-vegetarians/
 - Hashtag: #steakrb
+- More resources: http://wiki.github.com/cavalle/steak/resources
 
 == Credits
 
@@ -182,5 +183,7 @@ Steak was created by Luismi Cavallé and improved thanks to the love from:
 - Falk Pauser
 - Francesc Esplugas
 - Raúl Murciano
+- Enable Interactive
+- Vojto Rinik
 
 Copyright (c) 2009, 2010 Luismi Cavallé, released under the MIT license
