@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'rspec'
-require File.dirname(__FILE__) + "/../../lib/steak"
+require File.dirname(__FILE__) + "/../../../lib/steak"
 require 'tempfile'
 
 module Factories
@@ -25,7 +25,7 @@ module Factories
     end
 
     File.open(File.join(path, "Gemfile"), "a") do |file|
-      file.write "\ngem 'steak', :path => '#{File.expand_path(File.dirname(__FILE__) + '/../..')}'\n"
+      file.write "\ngem 'steak', :path => '#{File.expand_path(File.dirname(__FILE__) + '/../../..')}'\n"
     end
     
     `bundle install`

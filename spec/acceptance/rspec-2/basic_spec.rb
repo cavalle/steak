@@ -8,7 +8,7 @@ feature "Acceptance spec execution", %q{
 
   scenario "Minimal acceptance spec" do
     spec_file = create_spec <<-SPEC
-      require '#{File.dirname(__FILE__) + "/../../lib/steak"}'
+      require '#{File.dirname(__FILE__) + "/../../../lib/steak"}'
       feature "Minimal spec" do
         scenario "First scenario" do
           true.should be_true
@@ -21,7 +21,7 @@ feature "Acceptance spec execution", %q{
 
   scenario "Minimal acceptance spec that fails" do
     spec_file = create_spec <<-SPEC
-      require '#{File.dirname(__FILE__) + "/../../lib/steak"}'
+      require '#{File.dirname(__FILE__) + "/../../../lib/steak"}'
       feature "Minimal spec" do
         scenario "First scenario" do
           true.should be_false
@@ -34,7 +34,7 @@ feature "Acceptance spec execution", %q{
 
   scenario "Acceptance spec with background" do
     spec_file = create_spec <<-SPEC
-      require '#{File.dirname(__FILE__) + "/../../lib/steak"}'
+      require '#{File.dirname(__FILE__) + "/../../../lib/steak"}'
       feature "Minimal spec" do
         background do
           @value = 17
@@ -50,7 +50,7 @@ feature "Acceptance spec execution", %q{
   
   scenario "Acceptance spec metadata" do
     spec_file = create_spec <<-SPEC
-      require '#{File.dirname(__FILE__) + "/../../lib/steak"}'
+      require '#{File.dirname(__FILE__) + "/../../../lib/steak"}'
       feature "Minimal spec" do
         scenario "should have acceptance metadata" do
           example.metadata[:type].should == :acceptance
@@ -64,7 +64,7 @@ feature "Acceptance spec execution", %q{
   
   scenario "Regular specs doesn't have acceptance metadata" do
     spec_file = create_spec <<-SPEC
-      require '#{File.dirname(__FILE__) + "/../../lib/steak"}'
+      require '#{File.dirname(__FILE__) + "/../../../lib/steak"}'
       describe "Regular spec" do
         it "should not have acceptance metadata" do
           example.metadata[:type].should_not == :acceptance

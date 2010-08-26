@@ -5,7 +5,7 @@ rescue LoadError
 end
 
 if defined?(RSpec)
-  require 'steak-rspec2'
+  require 'steak/steak-rspec-2'
 else
-  require 'steak-rspec1'
+  require 'steak/steak-rspec-1'
 end
