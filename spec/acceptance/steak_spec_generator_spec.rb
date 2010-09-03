@@ -41,4 +41,15 @@ feature "Acceptance spec generator for rails", %q{
 
     File.exist?(@rails_app + "/spec/acceptance/document_creation_spec.rb").should be_true
   end
+
+  scenario "Adding new acceptance spec (namespaced)" do
+    Dir.chdir @rails_app do
+      `rails generate steak:spec document/creation_spec`
+    end
+
+    file_path = @rails_app + "/spec/acceptance/document/creation_spec.rb"
+
+    File.exist?(file_path).should be_true
+    File.read(file_path).should include("/../acceptance_helper")
+  end
 end

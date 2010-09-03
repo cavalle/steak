@@ -1,4 +1,5 @@
 require 'rails/generators'
+require 'active_support/inflector/inflections'
 
 module Steak
   class SpecGenerator < Rails::Generators::NamedBase
@@ -18,7 +19,13 @@ DESC
 
     def manifest
       empty_directory File.join('spec/acceptance', class_path)
-      file_name.gsub!(/_spec$/,"")
+      file_name.gsub!(/_spec$/, "")
+
+      @feature_name  = file_name.titleize
+      @relative_path = ""
+
+      class_path.size.times { @relative_path << '../' }
+
       template 'acceptance_spec.rb', File.join('spec/acceptance', class_path, "#{file_name}_spec.rb")
     end
   end
