@@ -20,7 +20,8 @@ module Factories
     FileUtils.rm_rf path + '/public/index.html'
     File.open(File.join(path, "Gemfile"), "a") do |file|
       file.write "\ngem 'rspec-rails', '>= 2.0.0.a9'\n" <<
-                 "gem 'capybara'\n"
+                 "gem 'capybara'\n" <<
+                 "gem 'webrat'\n"
     end
 
     File.open(File.join(path, "Gemfile"), "a") do |file|
