@@ -17,5 +17,4 @@ Gem::Specification.new do |gem|
                   '{lib,spec}/**/*'] & `git ls-files -z`.split("\0")
 
   gem.add_dependency('rspec-core', '>= 2.0.0.beta.19')
-  gem.add_dependency('activesupport', '>= 2.0.0')
 end
