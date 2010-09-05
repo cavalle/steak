@@ -22,11 +22,12 @@ DESC
       file_name.gsub!(/_spec$/, "")
 
       @feature_name  = file_name.titleize
-      @relative_path = ""
+      @relative_path = "../" * class_path.size
+      
+      target = File.join('spec/acceptance', class_path, 
+                         "#{file_name}_spec.rb")
 
-      class_path.size.times { @relative_path << '../' }
-
-      template 'acceptance_spec.rb', File.join('spec/acceptance', class_path, "#{file_name}_spec.rb")
+      template 'acceptance_spec.rb', target
     end
   end
 end

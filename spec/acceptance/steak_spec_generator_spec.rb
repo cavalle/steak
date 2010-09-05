@@ -15,7 +15,9 @@ feature "Acceptance spec generator for rails", %q{
       `rails generate steak:spec document_creation`
     end
 
-    File.exist?(@rails_app + "/spec/acceptance/document_creation_spec.rb").should be_true
+    File.exist?(
+      @rails_app + "/spec/acceptance/document_creation_spec.rb"
+    ).should be_true
   end
 
   scenario "Adding new acceptance spec (plural name)" do
@@ -23,7 +25,9 @@ feature "Acceptance spec generator for rails", %q{
       `rails generate steak:spec creating_documents`
     end
 
-    File.exist?(@rails_app + "/spec/acceptance/creating_documents_spec.rb").should be_true
+    File.exist?(
+      @rails_app + "/spec/acceptance/creating_documents_spec.rb"
+    ).should be_true
   end
 
   scenario "Adding new acceptance spec (pascalized name)" do
@@ -31,7 +35,9 @@ feature "Acceptance spec generator for rails", %q{
       `rails generate steak:spec DocumentCreation`
     end
 
-    File.exist?(@rails_app + "/spec/acceptance/document_creation_spec.rb").should be_true
+    File.exist?(
+      @rails_app + "/spec/acceptance/document_creation_spec.rb"
+    ).should be_true
   end
 
   scenario "Adding new acceptance spec (name ending with _spec)" do
@@ -39,7 +45,9 @@ feature "Acceptance spec generator for rails", %q{
       `rails generate steak:spec document_creation_spec`
     end
 
-    File.exist?(@rails_app + "/spec/acceptance/document_creation_spec.rb").should be_true
+    File.exist?(
+      @rails_app + "/spec/acceptance/document_creation_spec.rb"
+    ).should be_true
   end
 
   scenario "Adding new acceptance spec (namespaced)" do
