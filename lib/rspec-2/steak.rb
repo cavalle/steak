@@ -1,6 +1,6 @@
+require File.dirname(__FILE__) + '/rails/railtie' if defined?(Rails)
+
 module Steak
-  require 'steak/railtie' if defined?(Rails)
-  
   module AcceptanceExampleGroup
     def self.included(base)
       base.instance_eval do

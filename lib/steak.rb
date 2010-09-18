@@ -1,11 +1,11 @@
 begin
   require 'rspec/core'
 rescue LoadError
-  require 'spec'
+  require 'spec'       
 end
 
 if defined?(RSpec)
-  require 'steak/steak-rspec-2'
+  require 'rspec-2/steak'
 else
-  require 'steak/steak-rspec-1'
+  require 'rspec-1/steak'
 end

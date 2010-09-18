@@ -78,9 +78,9 @@ module RSpec_1
         Gemfile
       end
       Dir.chdir current_dir do
-        run "rvm gemset create steak-rspec-1"
-        run "gem install bundler --pre"
-        run "bundle install"
+        `rvm gemset create steak-rspec-1`
+        `gem install bundler`
+        `bundle install`
       end
     end
   end
