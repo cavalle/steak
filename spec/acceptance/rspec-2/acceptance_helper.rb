@@ -17,7 +17,7 @@ module RSpec_2
     def create_rails_app(options = {})
       path = File.join(Dir.tmpdir, String.random, "rails_app")
       FileUtils.rm_rf path
-      `rails new #{path}`
+      run "rails new #{path}"
       FileUtils.rm_rf path + '/public/index.html'
       File.open(File.join(path, "Gemfile"), "a") do |file|
         file.write "\ngem 'rspec-rails', '>= 2.0.0.a9'\n" <<
@@ -29,19 +29,19 @@ module RSpec_2
         file.write "\ngem 'steak', :path => '#{File.expand_path(File.dirname(__FILE__) + '/../../..')}'\n"
       end
     
-      `bundle install`
+      run "bundle install"
 
       Dir.chdir path do
-        `rails generate rspec:install`
+        run "rails generate rspec:install"
         if options[:scaffold]
-          `rails generate scaffold #{options[:scaffold]}`
-          `rake db:create db:migrate db:test:prepare`
+          run "rails generate scaffold #{options[:scaffold]}"
+          run "rake db:migrate db:test:prepare"
         end
       end
 
       unless options[:setup_steak] == false
         Dir.chdir path do
-          `rails generate steak:install`
+          run "rails generate steak:install"
         end
       end
 
@@ -51,13 +51,19 @@ module RSpec_2
   end
 
   module HelperMethods
+    def run(cmd)
+      `#{cmd} 2>&1`.tap do |o| 
+        puts o if ENV['TRACE']
+      end
+    end
+    
     def run_spec(file_path, app_base=nil)
       if app_base
         current_dir = Dir.pwd
         Dir.chdir app_base
       end
 
-      output = `rspec #{file_path} 2>&1`
+      output = run("rspec #{file_path}")
 
       Dir.chdir current_dir if app_base
       output

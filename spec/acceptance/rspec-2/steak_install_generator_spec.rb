@@ -11,7 +11,7 @@ feature "Steak generator for rails", %q{
     rails_app = create_rails_app(:setup_steak => false)
 
     Dir.chdir rails_app do
-      `rails generate steak:install`
+      run "rails generate steak:install"
     end
 
     File.exist?(rails_app + "/spec/acceptance/acceptance_helper.rb").should be_true
@@ -24,7 +24,7 @@ feature "Steak generator for rails", %q{
     rails_app = create_rails_app(:setup_steak => false, :scaffold => :users)
 
     Dir.chdir rails_app do
-      `rails generate steak:install`
+      run "rails generate steak:install"
     end
 
     spec_file = create_spec :path    => rails_app + "/spec/acceptance",
@@ -45,7 +45,7 @@ feature "Steak generator for rails", %q{
     rails_app = create_rails_app(:setup_steak => false, :scaffold => :users)
 
     Dir.chdir rails_app do
-      `rails generate steak:install --webrat`
+      run "rails generate steak:install --webrat"
     end
 
     spec_file = create_spec :path    => rails_app + "/spec/acceptance",

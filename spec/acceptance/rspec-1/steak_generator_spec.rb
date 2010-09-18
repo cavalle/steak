@@ -10,7 +10,7 @@ feature "Steak generator for rails", %q{
     rails_app = create_rails_app(:setup_steak => false)
 
     Dir.chdir rails_app do
-      `script/generate steak`
+      run "script/generate steak"
     end
 
     File.exist?(rails_app + "/spec/acceptance/acceptance_helper.rb").should be_true
@@ -23,7 +23,7 @@ feature "Steak generator for rails", %q{
     rails_app = create_rails_app(:setup_steak => false)
 
     Dir.chdir rails_app do
-      `script/generate steak`
+      run "script/generate steak"
     end
 
     spec_file = create_spec :path    => rails_app + "/spec/acceptance",
@@ -44,7 +44,7 @@ feature "Steak generator for rails", %q{
     rails_app = create_rails_app(:setup_steak => false)
 
     Dir.chdir rails_app do
-      `script/generate steak --webrat`
+      run "script/generate steak --webrat"
     end
 
     spec_file = create_spec :path    => rails_app + "/spec/acceptance",
@@ -65,7 +65,7 @@ feature "Steak generator for rails", %q{
     rails_app = create_rails_app
 
     Dir.chdir rails_app do
-      `script/generate steak`
+      run "script/generate steak"
       run("rake stats").should =~ /Acceptance specs/
     end
   end
@@ -84,7 +84,7 @@ feature "Steak generator for rails", %q{
     SPEC
 
     Dir.chdir rails_app do
-      run "rake db:create db:migrate db:test:prepare"
+      run "rake db:migrate db:test:prepare"
 
       output = run "rake spec:acceptance"
       output.should =~ /1 example, 0 failures/

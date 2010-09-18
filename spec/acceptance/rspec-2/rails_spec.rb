@@ -57,8 +57,8 @@ feature "Acceptance spec execution", %q{
     rails_app = create_rails_app
 
     Dir.chdir rails_app do
-      `rails generate steak:install`
-      `rake stats`.should =~ /Acceptance specs/
+      run "rails generate steak:install"
+      run("rake stats").should =~ /Acceptance specs/
     end
   end
 
@@ -74,14 +74,14 @@ feature "Acceptance spec execution", %q{
         end
       end
     SPEC
-
+    
     Dir.chdir rails_app do
-      `rake db:create db:migrate db:test:prepare`
-
-      output = `rake spec:acceptance`
+      run "rake db:migrate db:test:prepare"
+    
+      output = run("rake spec:acceptance")
       output.should =~ /1 example, 0 failures/
-
-      output = `rake`
+    
+      output = run("rake")
       output.should =~ /1 example, 0 failures/
     end
   end
