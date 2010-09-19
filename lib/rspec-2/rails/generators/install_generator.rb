@@ -25,7 +25,6 @@ DESC
     end
 
     def manifest
-      empty_directory 'spec/controllers'
       empty_directory 'spec/acceptance/support'
       template "acceptance_helper.rb", "spec/acceptance/acceptance_helper.rb"
       copy_file "helpers.rb",           "spec/acceptance/support/helpers.rb"
