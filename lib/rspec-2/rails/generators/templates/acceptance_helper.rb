@@ -21,6 +21,7 @@ RSpec.configuration.include Steak::Webrat, :type => :acceptance
 
 <%- else -%>
 require 'capybara/rails'
+Capybara.default_selector = :css
 
 RSpec.configuration.include Capybara, :type => :acceptance
 <%- end -%>
