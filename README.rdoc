@@ -6,8 +6,8 @@ http://dl.dropbox.com/u/645329/steak_small.jpg
 
 == What is Steak?
 
-Steak is like Cucumber but in plain Ruby. This is how an acceptance spec looks
-like in Steak:
+Steak is an Acceptance BDD solution (like Cucumber) but in plain Ruby. This 
+is how an acceptance spec looks like in Steak:
 
   feature "Main page" do
 
@@ -46,9 +46,7 @@ instance)
 
 Just install and require the damned gem!
 
-  $ gem install steak
-
-(Add the <tt>--pre</tt> modifier to be on top of RSpec 2 instead of RSpec 1.x)
+  $ gem install steak --pre
 
 Then in your spec or spec helper:
 
@@ -56,52 +54,13 @@ Then in your spec or spec helper:
 
 That's all. You don't really need to require RSpec.
 
-=== In Rails 2.x (stable branch)
-
-Assuming you have already setup rspec-rails, add this to your project's
-<tt>config/environments/test.rb</tt>:
-
-  config.gem "steak", :lib => false
-
-Install the gem from the command line:
-
-  $ RAILS_ENV=test rake gems:install
-
-Run the generator:
-
-  $ script/generate steak
-
-That will create some basic helper files and directory structure under the
-<tt>spec/acceptance</tt> directory, already configured for +Capybara+. If you want to
-use +Webrat+, just pass it to the generator:
-
-  $ script/generate steak --webrat
-
-Spend one minute on getting familiar with the structure and files you've got.
-
-Now you may want to create your first acceptance spec:
-
-  $ script/generate acceptance_spec this_is_my_first_feature
-
-You run your acceptance specs just like your regular specs. Individually...
-
-  $ rspec spec/acceptance/this_is_my_first_feature_spec.rb
-
-...or all together:
-
-  $ rspec spec/acceptance
-
-...you can also do:
-
-  $ rake spec:acceptance
-
-=== In Rails 3 (master branch)
+=== In Rails 3
 
 Add this to your project's <tt>Gemfile</tt>:
 
   group :development, :test do
-    gem 'rspec-rails', '>= 2.0.0.beta.19'
-    gem 'steak', '>= 1.0.0.beta.1'
+    gem 'rspec-rails'    
+    gem 'steak', '>= 1.0.0.rc.1'
     gem 'capybara'
     
     # Other usual suspects:
@@ -139,7 +98,46 @@ You run your acceptance specs just like your regular specs. Individually...
 ...you can also do:
 
   $ rake spec:acceptance
-  
+
+=== In Rails 2.x
+
+Assuming you have already setup rspec-rails, add this to your project's
+<tt>config/environments/test.rb</tt>:
+
+  config.gem "steak", :version => ">= 1.0.0.rc.1", :lib => false
+
+Install the gem from the command line:
+
+  $ RAILS_ENV=test rake gems:install
+
+Run the generator:
+
+  $ script/generate steak
+
+That will create some basic helper files and directory structure under the
+<tt>spec/acceptance</tt> directory, already configured for +Capybara+. If you want to
+use +Webrat+, just pass it to the generator:
+
+  $ script/generate steak --webrat
+
+Spend one minute on getting familiar with the structure and files you've got.
+
+Now you may want to create your first acceptance spec:
+
+  $ script/generate acceptance_spec this_is_my_first_feature
+
+You run your acceptance specs just like your regular specs. Individually...
+
+  $ spec spec/acceptance/this_is_my_first_feature_spec.rb
+
+...or all together:
+
+  $ spec spec/acceptance
+
+...you can also do:
+
+  $ rake spec:acceptance
+
 == RSpec & Metadata
 
 Steak scenarios are just regular RSpec examples with their metadata attribute 

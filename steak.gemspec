@@ -3,7 +3,7 @@ require "date"
 
 Gem::Specification.new do |gem|
   gem.name    = 'steak'
-  gem.version = '1.0.0.beta.2'
+  gem.version = '1.0.0.rc.1'
   gem.date    = Date.today.to_s
 
   gem.summary     = "Minimalist acceptance testing on top of RSpec"
@@ -18,7 +18,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'rspec'
   
-  gem.add_development_dependency 'rspec-rails', '>= 2.0.0.beta.1'
+  gem.add_development_dependency 'rspec-rails', '>= 2.0.0'
   gem.add_development_dependency 'rails', '>= 3.0.0'
   gem.add_development_dependency 'capybara'
   gem.add_development_dependency 'webrat'
