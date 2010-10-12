@@ -162,6 +162,7 @@ You'd do it this way:
 - Issues: http://github.com/cavalle/steak/issues
 - Group: http://groups.google.com/group/steakrb
 - IRC channel: #steakrb on freenode
+- Twitter: http://twitter.com/steakrb
 - Tutorial: http://jeffkreeftmeijer.com/2010/steak-because-cucumber-is-for-vegetarians/
 - Hashtag: #steakrb
 - More resources: http://wiki.github.com/cavalle/steak/resources
