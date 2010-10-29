@@ -3,7 +3,7 @@ require "date"
 
 Gem::Specification.new do |gem|
   gem.name    = 'steak'
-  gem.version = '1.0.0.rc.1'
+  gem.version = '1.0.0.rc.2'
   gem.date    = Date.today.to_s
 
   gem.summary     = "Minimalist acceptance testing on top of RSpec"
@@ -14,7 +14,7 @@ Gem::Specification.new do |gem|
   gem.homepage = 'http://github.com/cavalle/steak'
 
   gem.files = Dir['init.rb', 'MIT-LICENSE', 'Rakefile', 'README*', 'LICENSE*',
-                  '{lib,spec}/**/*'] & `git ls-files -z`.split("\0")
+                  '{lib,spec,generators}/**/*'] & `git ls-files -z`.split("\0")
 
   gem.add_dependency 'rspec'
   
