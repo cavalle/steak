@@ -3,8 +3,8 @@ module Spec::Example::ExampleGroupMethods
   alias background before
 end
 
-module Spec::DSL::Main
-  alias feature describe
+class << self
+  alias feature describe 
 end
 
 if defined?(Spec::Rails)

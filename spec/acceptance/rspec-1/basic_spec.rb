@@ -47,4 +47,30 @@ feature "Acceptance spec execution", %q{
     output = run_spec spec_file
     output.should =~ /1 example, 0 failures/
   end
+  
+  scenario "Steak should not pollute Object methods namespace" do
+    spec_file = create_spec <<-SPEC
+      require '#{File.dirname(__FILE__) + "/../../../lib/steak"}'
+      
+      class Wadus
+        def call_feature
+          feature
+        end
+        
+        def method_missing(meth, *args, &blk)
+          return "Hello!"
+        end
+      end
+      
+      feature "Wadus class" do
+        scenario "should not be polluted by Steak" do
+          w = Wadus.new
+          w.should_not respond_to(:feature)
+          w.call_feature.should == "Hello!"
+        end
+      end
+    SPEC
+    output = run_spec spec_file
+    output.should =~ /1 example, 0 failures/
+  end
 end
