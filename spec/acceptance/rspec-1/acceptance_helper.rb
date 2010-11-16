@@ -5,7 +5,6 @@ require 'tempfile'
 
 module RSpec_1
   module Factories
-  
     def create_spec(options)
       options = {:content => options} unless options.is_a?(Hash)
       path = (options[:path] || current_dir) + "/#{String.random}_spec.rb"
@@ -44,9 +43,14 @@ module RSpec_1
 
   module HelperMethods
     def run(cmd)
-      `rvm 1.8.7-p249@steak-rspec-1 exec #{cmd} 2>&1`.tap do |o| 
-        puts o if ENV['TRACE']
+      puts cmd if trace?
+      `rvm 1.8.7@steak-rspec-1 exec #{cmd} 2>&1`.tap do |o| 
+        puts o if trace? and o
       end
+    end
+    
+    def trace?
+      ENV['TRACE']
     end
   
     def run_spec(file_path)
@@ -61,30 +65,26 @@ module RSpec_1
       File.expand_path(File.dirname(__FILE__) + "/../../../")
     end
   end
+  
+  def self.gemset_create(gemset, *gems)
+    `rvm gemset create #{gemset}`
+    gems.each do |name|
+      `rvm #{gemset} gem search #{name} -i || rvm #{gemset} gem install #{name}`
+    end
+  end
 
   RSpec.configure do |config|
     config.include Factories,     :example_group => { :file_path => /rspec-1/}
     config.include HelperMethods, :example_group => { :file_path => /rspec-1/}
-    config.before :all, :example_group => { :file_path => /rspec-1/} do
-      FileUtils.rm_rf current_dir
-      FileUtils.mkdir_p current_dir
-      File.open(current_dir + "/Gemfile", "w") do |file|
-        file.write <<-Gemfile
-          source "http://rubygems.org"
-          gem "rspec-rails", "~> 1.3.0"
-          gem "rails", "~> 2.3.8"
-          gem "webrat"
-          gem "capybara"
-        Gemfile
-      end
-      Dir.chdir current_dir do
-        `rvm gemset create steak-rspec-1`
-        `gem install bundler`
-        `bundle install`
-      end
+    config.before :suite do
+      gemset_create "1.8.7@steak-rspec-1", "rspec-rails -v '~> 1.3.0'",
+                                           "rails -v '~> 2.3.8'",
+                                           "webrat",
+                                           "capybara",
+                                           "sqlite3-ruby",
+                                           "rake"
     end
   end
-
 end
 
 class String
