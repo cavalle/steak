@@ -2,6 +2,7 @@ require 'rubygems'
 require 'rspec'
 require File.dirname(__FILE__) + "/../../../lib/steak"
 require 'tempfile'
+require 'shellwords'
 
 module RSpec_1
   module Factories
@@ -69,6 +70,7 @@ module RSpec_1
   def self.gemset_create(gemset, *gems)
     `rvm gemset create #{gemset}`
     gems.each do |name|
+      name = Shellwords.escape(name)
       `rvm @#{gemset} gem search #{name} -i || rvm @#{gemset} gem install #{name}`
     end
   end
