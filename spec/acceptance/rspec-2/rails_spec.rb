@@ -13,7 +13,6 @@ feature "Acceptance spec execution", %q{
       require File.dirname(__FILE__) + "/acceptance_helper.rb"
       feature "Minimal spec" do
         scenario "First scenario" do
-          # Rails.env.should_not be_nil
           ::Rails.env.should == "test"
         end
       end
