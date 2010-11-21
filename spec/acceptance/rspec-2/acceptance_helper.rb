@@ -57,16 +57,10 @@ module RSpec_2
       end
     end
     
-    def run_spec(file_path, app_base=nil)
-      if app_base
-        current_dir = Dir.pwd
-        Dir.chdir app_base
+    def run_spec(file_path, app_base=Dir.pwd)
+      Dir.chdir app_base do
+        run("rspec #{file_path}")
       end
-
-      output = run("rspec #{file_path}")
-
-      Dir.chdir current_dir if app_base
-      output
     end
   end
 
