@@ -28,7 +28,7 @@ feature "Steak generator for rails", %q{
 
     spec_file = create_spec :path    => rails_app + "/spec/acceptance",
                             :content => <<-SPEC
-      require File.dirname(__FILE__) + "/acceptance_helper.rb"
+      require File.expand_path(File.dirname(__FILE__) + "/acceptance_helper.rb")
       feature "Capybara spec" do
         scenario "First scenario" do
           visit "/"
@@ -49,7 +49,7 @@ feature "Steak generator for rails", %q{
 
     spec_file = create_spec :path    => rails_app + "/spec/acceptance",
                             :content => <<-SPEC
-      require File.dirname(__FILE__) + "/acceptance_helper.rb"
+      require File.expand_path(File.dirname(__FILE__) + "/acceptance_helper.rb")
       feature "Capybara spec" do
         scenario "First scenario" do
           visit "/"
@@ -75,7 +75,7 @@ feature "Steak generator for rails", %q{
 
     spec_file = create_spec :path    => rails_app + "/spec/acceptance",
                             :content => <<-SPEC
-      require File.dirname(__FILE__) + "/acceptance_helper.rb"
+      require File.expand_path(File.dirname(__FILE__) + "/acceptance_helper.rb")
       feature "Basic spec" do
         scenario "First scenario" do
           true.should == true

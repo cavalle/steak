@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/<%= @relative_path %>acceptance_helper'
+require File.expand_path(File.dirname(__FILE__) + '/<%= @relative_path %>acceptance_helper')
 
 feature "<%= @feature_name %>", %q{
   In order to ...

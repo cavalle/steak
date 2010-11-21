@@ -2,3 +2,4 @@
 pkg
 rdoc
 webrat-*.html
+.bundle

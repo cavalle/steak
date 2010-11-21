@@ -8,6 +8,7 @@ task :default => :spec
 
 desc 'Run specs for the steak plugin.'
 RSpec::Core::RakeTask.new(:spec) do |t|
+  t.skip_bundler = true
   t.pattern = FileList["spec/**/*_spec.rb"]
 end
 

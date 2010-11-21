@@ -44,7 +44,7 @@ module RSpec_1
   module HelperMethods
     def run(cmd)
       puts cmd if trace?
-      `rvm 1.8.7@steak-rspec-1 exec #{cmd} 2>&1`.tap do |o| 
+      `rvm @steak-rspec-1 exec #{cmd} 2>&1`.tap do |o| 
         puts o if trace? and o
       end
     end
@@ -69,7 +69,7 @@ module RSpec_1
   def self.gemset_create(gemset, *gems)
     `rvm gemset create #{gemset}`
     gems.each do |name|
-      `rvm #{gemset} gem search #{name} -i || rvm #{gemset} gem install #{name}`
+      `rvm @#{gemset} gem search #{name} -i || rvm @#{gemset} gem install #{name}`
     end
   end
 
@@ -77,12 +77,13 @@ module RSpec_1
     config.include Factories,     :example_group => { :file_path => /rspec-1/}
     config.include HelperMethods, :example_group => { :file_path => /rspec-1/}
     config.before :suite do
-      gemset_create "1.8.7@steak-rspec-1", "rspec-rails -v '~> 1.3.0'",
-                                           "rails -v '~> 2.3.8'",
-                                           "webrat",
-                                           "capybara",
-                                           "sqlite3-ruby",
-                                           "rake"
+      gemset_create "steak-rspec-1", "rspec-rails -v '~> 1'",
+                                     "rails -v '~> 2'",
+                                     "webrat",
+                                     "capybara",
+                                     "sqlite3-ruby",
+                                     "rake",
+                                     "test-unit -v '1.2.3'"
     end
   end
 end
