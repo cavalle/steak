@@ -42,11 +42,7 @@ feature "Steak generator for rails", %q{
   end
 
   scenario "Running generator with webrat" do
-    rails_app = create_rails_app(:setup_steak => false, :scaffold => :users)
-
-    Dir.chdir rails_app do
-      run "rails generate steak:install --webrat"
-    end
+    rails_app = create_rails_app(:browser_simulator => :webrat, :scaffold => :users)
 
     spec_file = create_spec :path    => rails_app + "/spec/acceptance",
                             :content => <<-SPEC

@@ -66,7 +66,7 @@ module RSpec_1
       File.expand_path(File.dirname(__FILE__) + "/../../../")
     end
   end
-  
+ 
   def self.gemset_create(gemset, *gems)
     `rvm gemset create #{gemset}`
     gems.each do |name|

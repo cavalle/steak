@@ -15,20 +15,20 @@ module RSpec_2
     end
 
     def create_rails_app(options = {})
+      options[:browser_simulator] ||= "capybara"
+       
       path = File.join(Dir.tmpdir, String.random, "rails_app")
       FileUtils.rm_rf path
       run "rails new #{path}"
       FileUtils.rm_rf path + '/public/index.html'
       File.open(File.join(path, "Gemfile"), "a") do |file|
-        file.write "\ngem 'rspec-rails', '>= 2.0.0.a9'\n" <<
-                   "gem 'capybara'\n" <<
-                   "gem 'webrat'\n"
+        file.write %{
+          gem 'rspec-rails', '>= 2.0.0.a9'
+          gem '#{options[:browser_simulator]}'
+          gem 'steak', :path => '#{File.expand_path(File.dirname(__FILE__) + '/../../..')}'
+        }
       end
 
-      File.open(File.join(path, "Gemfile"), "a") do |file|
-        file.write "\ngem 'steak', :path => '#{File.expand_path(File.dirname(__FILE__) + '/../../..')}'\n"
-      end
-    
       run "bundle install"
 
       Dir.chdir path do

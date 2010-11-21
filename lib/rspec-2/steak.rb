@@ -6,6 +6,12 @@ module Steak
       base.instance_eval do
         alias scenario example
         alias background before
+        
+        if defined?(RSpec::Rails)
+          include RSpec::Rails::RequestExampleGroup
+          include Rack::Test::Methods
+          metadata[:type] = :acceptance
+        end
       end
     end
   end
