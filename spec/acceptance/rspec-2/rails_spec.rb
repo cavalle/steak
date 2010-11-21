@@ -30,12 +30,12 @@ feature "Acceptance spec execution", %q{
       feature "Minimal spec" do
         scenario "First scenario" do
           get "/"
-          response.should contain(/No route matches/)
+          last_response.body.should =~ /Not Found/
         end
       end
     SPEC
     output = run_spec spec_file, File.join(File.dirname(spec_file), '../..')
-    output.should =~ /1 example, 1 failure/
+    output.should =~ /1 example, 0 failures/
   end
   
   scenario "Path helpers are available" do

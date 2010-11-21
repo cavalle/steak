@@ -13,7 +13,7 @@ module Steak::Webrat
   include Webrat::Matchers
   
   def app
-    Rails.application
+    ::Rails.application
   end
 end
 
@@ -22,7 +22,16 @@ RSpec.configuration.include Steak::Webrat, :type => :acceptance
 <%- else -%>
 require 'capybara/rails'
 
-RSpec.configuration.include Capybara, :type => :acceptance
+module Steak::Capybara
+  include Rack::Test::Methods
+  include Capybara
+  
+  def app
+    ::Rails.application
+  end
+end
+
+RSpec.configuration.include Steak::Capybara, :type => :acceptance
 <%- end -%>
 
 # Put your acceptance spec helpers inside /spec/acceptance/support
