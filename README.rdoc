@@ -46,7 +46,7 @@ instance)
 
 Just install and require the damned gem!
 
-  $ gem install steak --pre
+  $ gem install steak
 
 Then in your spec or spec helper:
 
@@ -60,7 +60,7 @@ Add this to your project's <tt>Gemfile</tt>:
 
   group :development, :test do
     gem 'rspec-rails'    
-    gem 'steak', '>= 1.0.0.rc.1'
+    gem 'steak'
     gem 'capybara'
     
     # Other usual suspects:
