@@ -12,12 +12,6 @@ if defined?(Spec::Rails)
     class AcceptanceExampleGroup < IntegrationExampleGroup
       include ActionController::RecordIdentifier
       Spec::Example::ExampleGroupFactory.register(:acceptance, self)
-
-      def method_missing(sym, *args, &block)
-        return Spec::Matchers::Be.new(sym, *args)  if sym.to_s =~ /^be_/
-        return Spec::Matchers::Has.new(sym, *args) if sym.to_s =~ /^have_/
-        super
-      end
     end
   end
 end
