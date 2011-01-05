@@ -1,6 +1,31 @@
 unless ARGV.any? {|a| a =~ /^gems/} # Don't load anything when running the gems:* tasks
 
-require 'spec/rake/spectask'
+begin
+  require 'spec/rake/spectask'
+rescue MissingSourceFile
+  module Spec
+    module Rake
+      class SpecTask
+        def initialize(name)
+          task name do
+            # if rspec-rails is a configured gem, this will output helpful material and exit ...
+            require File.expand_path(File.join(File.dirname(__FILE__),"..","..","config","environment"))
+
+            # ... otherwise, do this:
+            raise <<-MSG
+
+#{"*" * 80}
+*  You are trying to run an rspec rake task defined in
+*  #{__FILE__},
+*  but rspec can not be found in vendor/gems, vendor/plugins or system gems.
+#{"*" * 80}
+MSG
+          end
+        end
+      end
+    end
+  end
+end
 
 namespace :spec do
   desc "Run the code examples in spec/acceptance"
