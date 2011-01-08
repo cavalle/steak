@@ -101,10 +101,12 @@ You run your acceptance specs just like your regular specs. Individually...
 
 === In Rails 2.x
 
-Assuming you have already setup rspec-rails, add this to your project's
+You need to setup rspec-rails before installing Steak. Make sure you use rspec(-rails) 1.x versions and not 2.x which don't work with Rails 2.3. You may want to use bundler and/or rvm to make sure the right versions of the gems are used.
+
+Assuming you have already setup rspec-rails 1.x, add this to your project's
 <tt>config/environments/test.rb</tt>:
 
-  config.gem "steak", :version => ">= 1.0.0.rc.1", :lib => false
+  config.gem "steak", :lib => false
 
 Install the gem from the command line:
 
