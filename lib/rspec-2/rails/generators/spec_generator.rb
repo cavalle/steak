@@ -18,7 +18,10 @@ Example:
 DESC
 
     def manifest
-      empty_directory File.join('spec/acceptance', class_path)
+      if behavior == :invoke
+        empty_directory File.join('spec/acceptance', class_path)
+      end
+
       file_name.gsub!(/_spec$/, "")
 
       @feature_name  = file_name.titleize

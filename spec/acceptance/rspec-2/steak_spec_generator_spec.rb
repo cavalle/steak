@@ -60,4 +60,18 @@ feature "Acceptance spec generator for rails", %q{
     File.exist?(file_path).should be_true
     File.read(file_path).should include("/../acceptance_helper")
   end
+
+  scenario "Removing an acceptance spec" do
+    Dir.chdir @rails_app do
+      run "rails generate steak:spec document_creation"
+      run "rails destroy steak:spec document_creation"
+    end
+
+    spec_dir = @rails_app + "/spec/acceptance/"
+    
+    File.exist?(spec_dir + "document_creation_spec.rb").should be_false
+    File.exist?(spec_dir + "acceptance_helper.rb").should be_true
+    File.exist?(spec_dir + "support/helpers.rb").should be_true
+    File.exist?(spec_dir + "support/paths.rb").should be_true
+  end
 end
