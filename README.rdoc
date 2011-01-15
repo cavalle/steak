@@ -188,5 +188,6 @@ Steak was created by Luismi Cavallé and improved thanks to the love from:
 - Vojto Rinik
 - Fred Wu
 - Sergio Espeja
+- Joao Carlos
 
 Copyright (c) 2009, 2010 Luismi Cavallé, released under the MIT license
