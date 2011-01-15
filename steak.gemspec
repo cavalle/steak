@@ -3,7 +3,7 @@ require "date"
 
 Gem::Specification.new do |gem|
   gem.name    = 'steak'
-  gem.version = '1.0.1'
+  gem.version = '1.1.0'
   gem.date    = Date.today.to_s
 
   gem.summary     = "Minimalist acceptance testing on top of RSpec"
