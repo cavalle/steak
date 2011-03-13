@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Getting started', %q{
   In order to start coding my awesome new project
   As a Rails developer
-  I want set up an Acceptance BDD environment
+  I want set up my project for Acceptance BDD
 } do
   
   scenario 'from an empty Rails project' do
