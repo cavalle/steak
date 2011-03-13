@@ -20,5 +20,5 @@ Gem::Specification.new do |s|
   s.test_files  = `git ls-files -- spec/**/*`.split("\n")
 
   s.add_dependency  'rspec-rails', '>= 2.5.0'
-  s.add_dependency  'capybara', '>= 1.0.0'
+  # s.add_dependency  'capybara', '>= 1.0.0'
 end
