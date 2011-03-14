@@ -19,4 +19,16 @@ feature 'Creating acceptance specs', %q{
     output.should =~ /1 example, 0 failures/
   end
   
+  scenario 'under a subdirectory' do
+    generate_rails_project_with_steak
+
+    run 'rails g steak:spec subdir/my_first_feature'
+
+    content_of('spec/acceptance/subdir/my_first_feature_spec.rb').should include("feature 'My first feature'")
+
+    run 'rspec spec/acceptance/subdir/my_first_feature_spec.rb'
+
+    output.should =~ /1 example, 0 failures/
+  end
+  
 end
