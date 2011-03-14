@@ -14,7 +14,7 @@ module Helpers
     generate_rails_project
     
     append_to 'Gemfile', <<-RUBY
-      group(:test) do 
+      group :test, :development do 
         gem 'steak', :path => '#{root_path}'
         gem 'capybara', :path => '#{Bundler.load.specs['capybara'].first.full_gem_path}' # Totally temporal. It should be a steak dependency
       end
@@ -26,6 +26,10 @@ module Helpers
   
   def append_to(path, content)
     rails_project_path.join(path).open('a') { |f| f.write content }
+  end
+  
+  def create_file(path, content)
+    rails_project_path.join(path).open('w') { |f| f.write content }
   end
   
   def run(command)

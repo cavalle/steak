@@ -10,7 +10,7 @@ feature 'Getting started', %q{
     generate_rails_project
     
     append_to 'Gemfile', <<-GEMS
-      group :test do
+      group :test, :development do
         gem 'steak', :path => '#{root_path}'
       end
     GEMS

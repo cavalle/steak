@@ -47,7 +47,7 @@ _NOTE: The latest version of Steak assumes that you're testing a Rails 3 applica
 
 It's super-easy to get you started. Just add the gem to your `Gemfile`…
 
-    group 'test' do
+    group :test, :development do
       gem 'steak'
       # ...
 

@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 
-require 'capybara/rspec'
-require 'active_support/all'
+require 'rails'
+require 'steak'
 
 require 'support/helpers'
