@@ -7,11 +7,12 @@ feature 'Getting started', %q{
 } do
   
   scenario 'from an empty Rails project' do
-    generate_rails_project
+    new_project_from :rails_project
     
     append_to 'Gemfile', <<-GEMS
       group :test, :development do
         gem 'steak', :path => '#{root_path}'
+        gem 'capybara', :path => '#{Bundler.load.specs['capybara'].first.full_gem_path}' # Totally temporal. It should be a steak dependency
       end
     GEMS
     

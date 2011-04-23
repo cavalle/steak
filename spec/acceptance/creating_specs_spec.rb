@@ -7,7 +7,7 @@ feature 'Creating acceptance specs', %q{
 } do
   
   scenario 'using the spec generator' do
-    generate_rails_project_with_steak
+    new_project_from :rails_project_with_steak
     
     run 'rails g steak:spec my_first_feature'
     
@@ -20,7 +20,7 @@ feature 'Creating acceptance specs', %q{
   end
   
   scenario 'under a subdirectory' do
-    generate_rails_project_with_steak
+    new_project_from :rails_project_with_steak
 
     run 'rails g steak:spec subdir/my_first_feature'
 

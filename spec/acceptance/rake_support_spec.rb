@@ -7,7 +7,7 @@ feature 'Rake support', %q{
 } do
   
   background do
-    generate_rails_project_with_steak
+    new_project_from :rails_project_with_steak
     create_file 'spec/unit_spec.rb', <<-RSPEC
       require 'spec_helper'
       

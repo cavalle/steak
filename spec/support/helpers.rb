@@ -1,29 +1,13 @@
 require 'tempfile'
 
 module Helpers
-  attr_accessor :output
   
-  def generate_rails_project
+  def new_project_from(fixture_name)
     rm_rf rails_project_path
-    cd # go to an existing dir
-    run "rails new #{rails_project_path}"
+    cp_r fixture_path(fixture_name), rails_project_path
     cd rails_project_path
   end
-  
-  def generate_rails_project_with_steak
-    generate_rails_project
-    
-    append_to 'Gemfile', <<-RUBY
-      group :test, :development do 
-        gem 'steak', :path => '#{root_path}'
-        gem 'capybara', :path => '#{Bundler.load.specs['capybara'].first.full_gem_path}' # Totally temporal. It should be a steak dependency
-      end
-    RUBY
-    
-    run 'bundle --local'
-    run 'rails g steak:install'
-  end
-  
+
   def append_to(path, content)
     rails_project_path.join(path).open('a') { |f| f.write content }
   end
@@ -31,6 +15,8 @@ module Helpers
   def create_file(path, content)
     rails_project_path.join(path).open('w') { |f| f.write content }
   end
+  
+  attr_accessor :output
   
   def run(command)
     self.output = Bundler.with_clean_env { `#{command} 2>&1` }
@@ -56,6 +42,10 @@ module Helpers
     FileUtils.rm_rf *args
   end
   
+  def cp_r(*args)
+    FileUtils.cp_r *args
+  end
+  
   def root_path
     Bundler.root
   end
@@ -64,9 +54,14 @@ module Helpers
     Pathname.new(Dir.tmpdir).join('rails_project')
   end
   
+  def fixture_path(name = ".")
+    root_path.join('spec', 'fixtures', name.to_s)
+  end
+  
   def log(text)
     puts text if ENV['TRACE']
   end
+
 end
 
 RSpec.configuration.include Helpers
