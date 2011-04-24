@@ -5,7 +5,7 @@ module Steak
 
       def main
         generate    'rspec:install'
-        directory   'spec/acceptance/support'
+        directory   'spec/acceptance'
       end
     end
   end

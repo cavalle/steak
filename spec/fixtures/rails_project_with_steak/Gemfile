@@ -58,7 +58,7 @@ end
 # group :development, :test do
 #   gem 'webrat'
 # end
-    group :test, :development do 
+    group :test, :development do
       gem 'steak', :path => '/Users/luismi/p/steak'
-      gem 'capybara', :path => '/Users/luismi/.rvm/gems/jruby-1.6.0/bundler/gems/capybara-0ad2f9f066db' # Totally temporal. It should be a steak dependency
+      gem 'capybara', :path => '/Users/luismi/.rvm/gems/ree-1.8.7-2011.03/bundler/gems/capybara-0ad2f9f066db' # Totally temporal. It should be a steak dependency
     end

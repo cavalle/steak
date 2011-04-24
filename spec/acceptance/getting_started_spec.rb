@@ -25,7 +25,10 @@ feature 'Getting started', %q{
 
     # steak should be present
     path('spec/acceptance').should exist
+    path('spec/acceptance/acceptance_helper.rb').should exist
     path('spec/acceptance/support').should exist
+    path('spec/acceptance/support/helpers.rb').should exist
+    path('spec/acceptance/support/paths.rb').should exist
   end
 
 end
