@@ -14,7 +14,6 @@ Gem::Specification.new do |s|
 
   s.summary     = %q{The delicious combination of RSpec and Capybara for Acceptance BDD}
   s.description = %q{Steak is a minimal extension of RSpec-Rails that adds several conveniences to do acceptance testing of Rails applications using Capybara. It's an alternative to Cucumber in plain Ruby.}
-  s.has_rdoc    = false
 
   s.files       = Dir['LICENSE', 'README.md', 'lib/**/*'] & `git ls-files`.split("\n")
   s.test_files  = `git ls-files -- spec/**/*`.split("\n")
