@@ -8,22 +8,22 @@ The delicious combination of RSpec and Capybara for Acceptance BDD
 
 Steak is a minimal extension of RSpec-Rails that adds several conveniences to do acceptance testing of Rails applications using Capybara. It's an alternative to Cucumber in plain Ruby. This is how and acceptance spec looks like in Steak:
 
-    feature "Main page" do
+    feature 'Main page' do
 
       background do
-        create_user :login => "jdoe"
+        create_user :login => 'jdoe'
       end
 
-      scenario "should show existing quotes" do
-        create_quote :text => "The language of friendship is not words, but meanings",
-                     :author => "Henry David Thoreau"
+      scenario 'should show existing quotes' do
+        create_quote :text => 'The language of friendship is not words, but meanings',
+                     :author => 'Henry David Thoreau'
 
-        login_as "jdoe"
-        visit "/"
+        login_as 'jdoe'
+        visit '/'
 
-        within(".quote") do
-          page.should have_content("The language of friendship is not words, but meanings")
-          page.should have_content("Henry David Thoreau")
+        within('.quote') do
+          page.should have_content('The language of friendship is not words, but meanings')
+          page.should have_content('Henry David Thoreau')
         end
       end
       
@@ -104,4 +104,3 @@ Steak was created by [Luismi Cavallé](http://lmcavalle.com) and improved thanks
 * Joao Carlos
 
 Copyright © 2009 - 2011 Luismi Cavallé, released under the MIT license
-

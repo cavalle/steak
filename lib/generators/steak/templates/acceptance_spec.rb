@@ -5,9 +5,9 @@ feature '<%= human_name %>', %q{
   As a ...
   I want ...
 } do
-  
+
   scenario 'first scenario' do
     true.should == true
   end
-  
+
 end
