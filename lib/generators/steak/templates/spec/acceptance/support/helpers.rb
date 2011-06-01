@@ -3,4 +3,4 @@ module HelperMethods
 
 end
 
-RSpec.configuration.include HelperMethods, :type => :request
+RSpec.configuration.include HelperMethods, :type => :acceptance
