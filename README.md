@@ -1,3 +1,7 @@
+## TODO
+* Rake stats
+* Manual test different scenarios: rspec-rails already present, upgrade from Steak-1… 
+
 # Steak
 
 The delicious combination of RSpec and Capybara for Acceptance BDD
