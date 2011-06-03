@@ -91,7 +91,7 @@ mode. With gems, use <tt>sudo gem install ruby-debug</tt>. Example:
 
   class WeblogController < ActionController::Base
     def index
-      @posts = Post.find(:all)
+      @posts = Post.all
       debugger
     end
   end
@@ -139,7 +139,7 @@ To reload your controllers and models after launching the console run
 <tt>reload!</tt>
 
 More information about irb can be found at:
-link:http://www.rubycentral.com/pickaxe/irb.html
+link:http://www.rubycentral.org/pickaxe/irb.html
 
 
 == dbconsole
@@ -156,6 +156,10 @@ PostgreSQL and SQLite 3.
 The default directory structure of a generated Ruby on Rails application:
 
   |-- app
+  |   |-- assets
+  |       |-- images
+  |       |-- javascripts
+  |       `-- stylesheets
   |   |-- controllers
   |   |-- helpers
   |   |-- mailers
@@ -172,9 +176,6 @@ The default directory structure of a generated Ruby on Rails application:
   |   `-- tasks
   |-- log
   |-- public
-  |   |-- images
-  |   |-- javascripts
-  |   `-- stylesheets
   |-- script
   |-- test
   |   |-- fixtures
@@ -188,10 +189,15 @@ The default directory structure of a generated Ruby on Rails application:
   |   |-- sessions
   |   `-- sockets
   `-- vendor
+      |-- assets
+          `-- stylesheets
       `-- plugins
 
 app
   Holds all the code that's specific to this particular application.
+
+app/assets
+  Contains subdirectories for images, stylesheets, and JavaScript files.
 
 app/controllers
   Holds controllers that should be named like weblogs_controller.rb for
@@ -237,8 +243,7 @@ lib
   the load path.
 
 public
-  The directory available for the web server. Contains subdirectories for
-  images, stylesheets, and javascripts. Also contains the dispatchers and the
+  The directory available for the web server. Also contains the dispatchers and the
   default HTML files. This should be set as the DOCUMENT_ROOT of your web
   server.
 

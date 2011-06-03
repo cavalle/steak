@@ -17,7 +17,6 @@ task :refresh_fixtures do
   append_to 'Gemfile', <<-RUBY
     group :test, :development do
       gem 'steak', :path => '#{root_path}'
-      gem 'capybara', :path => '#{Bundler.load.specs['capybara'].first.full_gem_path}' # Totally temporal. It should be a steak dependency
     end
   RUBY
 
