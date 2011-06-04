@@ -7,3 +7,5 @@ module Steak
     end
   end
 end
+
+RSpec.configuration.include Steak::AcceptanceExampleGroup, :capybara_feature => true
