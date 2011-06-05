@@ -1,11 +1,5 @@
-begin
-  require 'rspec/core'
-rescue LoadError
-  require 'spec'       
-end
+require 'capybara/rspec'
+require 'rspec-rails'
 
-if defined?(RSpec::Core)
-  require 'rspec-2/steak'
-else
-  require 'rspec-1/steak'
-end
+require 'steak/railtie'
+require 'steak/acceptance_example_group'

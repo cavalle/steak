@@ -1,26 +1,24 @@
-# encoding: utf-8
-require "date"
+# -*- encoding: utf-8 -*-
+$:.push File.expand_path("../lib", __FILE__)
+require "steak/version"
 
-Gem::Specification.new do |gem|
-  gem.name    = 'steak'
-  gem.version = '1.1.0'
-  gem.date    = Date.today.to_s
+Gem::Specification.new do |s|
+  s.name        = "steak"
+  s.version     = Steak::VERSION
+  s.platform    = Gem::Platform::RUBY
+  s.date        = Date.today.to_s
 
-  gem.summary     = "Minimalist acceptance testing on top of RSpec"
-  gem.description = "If you are not in Rails but use RSpec, then Steak is just some aliases providing you with the language of acceptance testing (feature, scenario, background). If you are in Rails, you also have a couple of generators, a rake task and full Rails integration testing (meaning Webrat support, for instance)"
+  s.authors     = ["Luismi Cavallé"]
+  s.email       = "luismi@lmcavalle.com"
+  s.homepage    = "http://github.com/cavalle/steak"
 
-  gem.authors  = ["Luismi Cavallé"]
-  gem.email    = 'luismi@lmcavalle.com'
-  gem.homepage = 'http://github.com/cavalle/steak'
+  s.summary     = %q{The delicious combination of RSpec and Capybara for Acceptance BDD}
+  s.description = %q{Steak is a minimal extension of RSpec-Rails that adds several conveniences to do acceptance testing of Rails applications using Capybara. It's an alternative to Cucumber in plain Ruby.}
 
-  gem.files = Dir['init.rb', 'MIT-LICENSE', 'Rakefile', 'README*', 'LICENSE*',
-                  '{lib,spec,generators}/**/*'] & `git ls-files -z`.split("\0")
+  s.files       = Dir['LICENSE', 'README.md', 'lib/**/*'] & `git ls-files`.split("\n")
+  s.test_files  = `git ls-files -- spec/**/*`.split("\n")
 
-  gem.add_dependency 'rspec', '>= 1.3'
-  
-  gem.add_development_dependency 'rspec-rails', '>= 2.0.0'
-  gem.add_development_dependency 'rails', '>= 3.0.0'
-  gem.add_development_dependency 'capybara'
-  gem.add_development_dependency 'webrat'
-  gem.add_development_dependency 'sqlite3-ruby'
+  s.add_dependency  'rspec-rails', '>= 2.5.0'
+  s.add_dependency  'capybara', '>= 1.0.0.beta1'
+
 end
