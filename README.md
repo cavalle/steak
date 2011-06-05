@@ -1,7 +1,3 @@
-## TODO
-* Rake stats
-* Manual test different scenarios: rspec-rails already present, upgrade from Steak-1… 
-
 # Steak
 
 The delicious combination of RSpec and Capybara for Acceptance BDD
@@ -47,12 +43,12 @@ Basically Steak exists for three reasons:
 
 ## Getting Started
 
-_NOTE: The latest version of Steak assumes that you're testing a Rails 3 application, with RSpec 2 and Capybara. For Rails 2, RSpec 1 or Webrat you should use Steak 1.x (or consider upgrading to non-obsolete technologies ;P)_
+_NOTE: The following instructions refer to the development version of Steak which only works for Rails 3, RSpec 2 and Capybara 1.0. The [stable version](https://github.com/cavalle/steak/tree/steak-1), also works for Rails 2, RSpec 1 or Webrat_
 
 It's super-easy to get you started. Just add the gem to your `Gemfile`…
 
     group :test, :development do
-      gem 'steak'
+      gem 'steak', '>= 2.0.0.beta1'
       # ...
 
 …and then install the gem and run the generator:
@@ -60,9 +56,10 @@ It's super-easy to get you started. Just add the gem to your `Gemfile`…
     $ bundle
     $ rails g steak:install
 
-You're now set up! Take a look at the default directory structure you've got under `spec/acceptance`. It will help you organize the helpers and configurations for your acceptance specs.
+You're now set up! Note that Steak is the only dependency you really need, you can safely remove any reference to `capybara`, `rspec-rails` or `rspec` from your `Gemfile`, they will be included by Steak. Also note that, unless previously executed, Steak will run the RSpec generator so you don't need to invoke it.
 
-Note that Steak is the only dependency you really need, you can safely remove any reference to `capybara`, `rspec-rails` or `rspec` from your `Gemfile`, they will be included by Steak. Also note that, unless previously executed, Steak will run the RSpec generator so you don't need to invoke it.
+Take a look now at the default directory structure you've got under `spec/acceptance`. It will help you organize the helpers and configurations for your acceptance specs.
+
 
 ## Creating and running specs
 
