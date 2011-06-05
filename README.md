@@ -42,7 +42,7 @@ If, after all, this is just RSpec + Capybara, why does Steak even exist? Do I re
 Basically Steak exists for three reasons:
 
 1. **Making a point**. First of all, Steak proposes that using RSpec and Capybara for acceptance testing is a sensible alternative to Cucumber. It also sets a name to refer to that approach.
-1. **Adding convenience**. As a gem, Steak aims to make the experience as convenient as possible. It provides several Rails generators and Rake tasks so that setting up a new project or creating and running specs are quick and seamless tasks. A natural extension of RSpec-Rails.
+1. **Adding convenience**. As a gem, Steak aims to make the experience as convenient as possible. It provides Rails integration testing support and several generators and rake tasks so that setting up a new project or creating and running specs are quick and seamless tasks. A natural extension of RSpec-Rails.
 1. **Building a community**. No development approach or ruby gem is really valuable without an active community behind it. The mailing list, the IRC channel, the wiki or the twitter account are useful tools to build a community of users that help each other by sharing knowledge, resources and best practices.
 
 ## Getting Started

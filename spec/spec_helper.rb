@@ -2,6 +2,6 @@ require 'rubygems'
 require 'bundler/setup'
 
 require 'rails'
-require 'steak'
+require 'capybara/rspec/features'
 
 require 'support/helpers'

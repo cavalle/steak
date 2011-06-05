@@ -3,6 +3,7 @@ module Steak
     extend ActiveSupport::Concern
     
     included do
+      include RSpec::Rails::RequestExampleGroup
       metadata[:type] = :acceptance
     end
   end

@@ -51,5 +51,25 @@ feature 'Creating acceptance specs', %q{
 
     output.should =~ /1 example, 0 failures/
   end
+  
+  scenario 'with Rails integration testing support' do
+    new_project_from :rails_project_with_steak
+    
+    create_file 'spec/acceptance/integration_spec.rb', <<-RSPEC
+      require 'acceptance/acceptance_helper'
+
+      feature 'Capybara and paths' do
+        scenario 'should visit homepage' do
+          get '/'
+          
+          status.should == 200
+        end
+      end
+    RSPEC
+    
+    run 'rspec spec/acceptance/integration_spec.rb'
+
+    output.should =~ /1 example, 0 failures/
+  end
 
 end
