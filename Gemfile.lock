@@ -141,7 +141,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-jdbc-adapter
   jdbc-sqlite3
-  rails (>= 3.1.0.rc.1)
+  rails (>= 3.1.0.rc1)
   ruby-debug
   sqlite3
   steak!
