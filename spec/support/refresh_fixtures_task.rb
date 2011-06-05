@@ -22,6 +22,7 @@ task :refresh_fixtures do
 
   run 'bundle --local'
   run 'rails g steak:install'
+  run 'rake db:migrate'
 
   cp_r rails_project_path, fixture_path(:rails_project_with_steak)
 

@@ -16,7 +16,6 @@ feature 'Rake support', %q{
       end
     RSPEC
     run 'rails g steak:spec my_spec'
-    run 'rake db:migrate'
   end
 
   scenario 'to run acceptance specs as part of the test suite' do
