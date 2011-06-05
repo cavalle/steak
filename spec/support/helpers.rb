@@ -13,7 +13,9 @@ module Helpers
   end
 
   def create_file(path, content)
-    rails_project_path.join(path).open('w') { |f| f.write content }
+    file = rails_project_path.join(path)
+    mkdir_p file.dirname
+    file.open('w') { |f| f.write content }
   end
 
   attr_accessor :output
@@ -44,6 +46,10 @@ module Helpers
 
   def cp_r(*args)
     FileUtils.cp_r *args
+  end
+  
+  def mkdir_p(*args)
+    FileUtils.mkdir_p *args
   end
 
   def root_path

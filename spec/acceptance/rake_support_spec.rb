@@ -8,7 +8,7 @@ feature 'Rake support', %q{
 
   background do
     new_project_from :rails_project_with_steak
-    create_file 'spec/unit_spec.rb', <<-RSPEC
+    create_file 'spec/models/model_spec.rb', <<-RSPEC
       require 'spec_helper'
 
       describe Object do
@@ -29,6 +29,12 @@ feature 'Rake support', %q{
   scenario 'to run only acceptance specs' do
     run 'rake spec:acceptance'
     output.should =~ /1 example, 0 failures/
+  end
+  
+  scenario "to get stats" do
+    run 'rake stats'
+    output.should =~ /Model specs \D+ 5 /
+    output.should =~ /Acceptance specs \D+ [1-9]+ /
   end
 
 end
