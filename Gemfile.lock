@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    steak (2.0.0.a0)
+    steak (2.0.0.beta1)
       capybara (>= 1.0.0.beta1)
       rspec-rails (>= 2.5.0)
 
@@ -56,7 +56,6 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.7.0)
     ffi (1.0.9)
-    ffi (1.0.9-java)
     hike (1.0.0)
     i18n (0.6.0)
     jdbc-sqlite3 (3.6.14.2.056-java)
@@ -69,8 +68,6 @@ GEM
     mime-types (1.16)
     multi_json (1.0.3)
     nokogiri (1.4.4)
-    nokogiri (1.4.4-java)
-      weakling (>= 0.0.3)
     polyglot (0.3.1)
     rack (1.3.0)
     rack-cache (1.0.2)
@@ -130,7 +127,6 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.27)
-    weakling (0.0.4-java)
     xpath (0.1.4)
       nokogiri (~> 1.3)
 
