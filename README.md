@@ -43,12 +43,12 @@ Basically Steak exists for three reasons:
 
 ## Getting Started
 
-_NOTE: The following instructions refer to the development version of Steak which only works for Rails 3, RSpec 2 and Capybara 1.0. The [stable version](https://github.com/cavalle/steak/tree/steak-1), also works for Rails 2, RSpec 1 or Webrat_
+_NOTE: The current version of Steak (2.0) assumes that you're testing a Rails 3 application, with RSpec 2 and Capybara. For Rails 2, RSpec 1 or Webrat you should use [Steak 1](https://github.com/cavalle/steak/tree/steak-1) (or consider upgrading to non-obsolete technologies ;P)_
 
 It's super-easy to get you started. Just add the gem to your `Gemfile`…
 
     group :test, :development do
-      gem 'steak', '>= 2.0.0.beta1'
+      gem 'steak'
       # ...
 
 …and then install the gem and run the generator:
