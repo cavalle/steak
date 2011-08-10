@@ -1,4 +1,4 @@
-# Steak
+# Steak [![Build Status](http://travis-ci.org/cavalle/steak.png)](http://travis-ci.org/cavalle/steak)
 
 The delicious combination of RSpec and Capybara for Acceptance BDD
 
