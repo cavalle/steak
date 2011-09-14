@@ -6,7 +6,7 @@ The delicious combination of RSpec and Capybara for Acceptance BDD
 
 ## What is Steak?
 
-Steak is a minimal extension of RSpec-Rails that adds several conveniences to do acceptance testing of Rails applications using Capybara. It's an alternative to Cucumber in plain Ruby. This is how and acceptance spec looks like in Steak:
+Steak is a minimal extension of RSpec-Rails that adds several conveniences to do acceptance testing of Rails applications using Capybara. It's an alternative to Cucumber in plain Ruby. This is how an acceptance spec looks like in Steak:
 
     feature 'Main page' do
 
