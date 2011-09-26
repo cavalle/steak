@@ -69,7 +69,7 @@ You can create your specs by hand, however you may prefer to use the generator:
 
 To run your acceptance specs you just do like with any other spec…
 
-    $ rspec spec/acceptance/my_first_feature_spec.rb
+    $ bundle exec rspec spec/acceptance/my_first_feature_spec.rb
 
 …or using rake:
 
