@@ -1,8 +1,12 @@
-# Steak [![Build Status](https://secure.travis-ci.org/cavalle/steak.png)](http://travis-ci.org/cavalle/steak) [![Dependency Status](https://gemnasium.com/cavalle/steak.png)](https://gemnasium.com/cavalle/steak)
+# Discontinued
+
+This library is no longer maintained. Capybara itself included the same functionality.
+
+# Steak [![Build Status](https://secure.travis-ci.org/cavalle/steak.png)](http://travis-ci.org/cavalle/steak)
 
 The delicious combination of RSpec and Capybara for Acceptance BDD
 
-![Steak!!](http://dl.dropbox.com/u/645329/steak_small.jpg "Steak!!")
+![Steak!!](https://user-images.githubusercontent.com/856/155135994-6c298335-e1a3-4891-9a37-fdcbd2f0cb25.jpg)
 
 ## What is Steak?
 
